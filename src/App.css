@@ -5,5 +5,5 @@
     border-top: 10px solid var(--c-bekb-primary);
 
     display: grid;
-    grid-template-rows: auto 25vh;
+    grid-template-rows: 75vh 25vh;
 }

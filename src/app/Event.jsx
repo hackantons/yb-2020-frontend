@@ -32,7 +32,7 @@ const Event = ({ title, description, onConfirmEvent, isFirst }) => {
         clickAfter={isFirst ? TIMEOUT : 0}
         onClick={onConfirmEvent}
       >
-        {isFirst ? 'Starten' : 'Weiter'}
+        {isFirst ? 'Los geht\'s!' : 'Weiter'}
       </Button>
     </div>
   );

@@ -30,6 +30,9 @@
     color: var(--c-bz-highlight);
 }
 
+.event__text {
+    overflow-y: auto;
+}
 .event h2 {
     font-family: 'Source Serif Pro', serif;
     font-size: 34px;
@@ -39,6 +42,7 @@
 
 .event p {
     font-family: 'IBM Plex Sans', sans-serif;
+    white-space: pre-line;
     margin-bottom: var(--gap-l);
     line-height: 1.6;
 }
