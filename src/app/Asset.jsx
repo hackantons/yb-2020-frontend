@@ -2,7 +2,10 @@ import React from 'react';
 import ContUp from 'react-countup';
 import './Asset.css';
 
-const Asset = ({ assetKey, value, modifyAsset }) => {
+const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
+  let emptyHeight = totalAssets ? 100 - value / totalAssets * 100 : 100;
+  emptyHeight = emptyHeight.toString() + '%';
+
   return (
     <p className="asset">
       <div className="asset__icons">
@@ -10,7 +13,7 @@ const Asset = ({ assetKey, value, modifyAsset }) => {
           className="asset__image--filled"
           src={`/assets/static/${assetKey}.png`}
         />
-        <div className="asset__icon__empty">
+        <div className="asset__icon__empty" style={{height: emptyHeight }}>
           <img
             className="asset__image--empty"
             src={`/assets/static/${assetKey}-empty.png`}

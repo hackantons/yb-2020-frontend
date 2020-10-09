@@ -32,5 +32,7 @@
 .asset__icon__empty {
   position: absolute;
   top: 0;
+  height: 100%;
   overflow: hidden;
+  transition: height 0.4s linear;
 }
