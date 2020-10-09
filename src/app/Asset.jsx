@@ -3,7 +3,29 @@ import ContUp from 'react-countup';
 import './Asset.css';
 
 const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
-  let emptyHeight = totalAssets ? 100 - value / totalAssets * 100 : 100;
+  const percentageOfTotalAssets = totalAssets ? value / totalAssets : 0;
+  let min = 5;
+  let max = 80;
+
+
+  switch (assetKey) {
+    case 'real-estate':
+      min = 0;
+      max = 74;
+      break;
+    case 'commodities':
+      min = 10;
+      max = 80;
+      break;
+    case 'shares':
+      min = 0;
+      max = 79;
+      break;
+  }
+
+  const range = max - min; // the visible icon is between 80 and 5%
+
+  let emptyHeight = range - (range * percentageOfTotalAssets) + min;
   emptyHeight = emptyHeight.toString() + '%';
 
   return (
@@ -13,7 +35,7 @@ const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
           className="asset__image--filled"
           src={`/assets/static/${assetKey}.png`}
         />
-        <div className="asset__icon__empty" style={{height: emptyHeight }}>
+        <div className="asset__icon__empty" style={{ height: emptyHeight }}>
           <img
             className="asset__image--empty"
             src={`/assets/static/${assetKey}-empty.png`}
