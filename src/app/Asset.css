@@ -21,21 +21,40 @@
     text-align: center;
     transform-origin: center;
     left: 50%;
-    color: var(--c-weiss);
     font-weight: 900;
     transform: rotate3d(1, 1, 1, -68deg) skewX(10deg);
+    color: var(--c-weiss);
     text-shadow: -1px 0px var(--c-text-shadow), -2px 0px var(--c-text-shadow), -3px 1px var(--c-text-shadow), -4px 2px var(--c-text-shadow), -3px -2px var(--c-card-shadow);
-    transition: color 1s ease-in, text-shadow 1s ease-in;
     &.increase {
-      color: var(--c-increase-light);
-      text-shadow: -1px 0px var(--c-increase), -2px 0px var(--c-increase), -3px 1px var(--c-increase), -4px 2px var(--c-increase), -3px -2px var(--c-card-shadow);
-      transition: color 0.1s ease-in, text-shadow 0.1s ease-in;
+      animation-duration: 1s;
+      animation-name: increase;
     }
     &.decrease {
-      color: var(--c-decrease-light);
-      text-shadow: -1px 0px var(--c-decrease), -2px 0px var(--c-decrease), -3px 1px var(--c-decrease), -4px 2px var(--c-decrease), -3px -2px var(--c-card-shadow);
-      transition: color 0.1s ease-in, text-shadow 0.1s ease-in;
+      animation-duration: 1s;
+      animation-name: decrease;
     }
+  }
+}
+
+@keyframes increase {
+  10% {
+    color: var(--c-increase-light);
+    text-shadow: -1px 0px var(--c-increase), -2px 0px var(--c-increase), -3px 1px var(--c-increase), -4px 2px var(--c-increase), -3px -2px var(--c-card-shadow);
+  }
+  to {
+    color: var(--c-weiss);
+    text-shadow: -1px 0px var(--c-text-shadow), -2px 0px var(--c-text-shadow), -3px 1px var(--c-text-shadow), -4px 2px var(--c-text-shadow), -3px -2px var(--c-card-shadow);
+  }
+}
+
+@keyframes decrease {
+  10% {
+    color: var(--c-decrease-light);
+    text-shadow: -1px 0px var(--c-decrease), -2px 0px var(--c-decrease), -3px 1px var(--c-decrease), -4px 2px var(--c-decrease), -3px -2px var(--c-card-shadow);
+  }
+  to {
+    color: var(--c-weiss);
+    text-shadow: -1px 0px var(--c-text-shadow), -2px 0px var(--c-text-shadow), -3px 1px var(--c-text-shadow), -4px 2px var(--c-text-shadow), -3px -2px var(--c-card-shadow);
   }
 }
 
