@@ -1,0 +1,26 @@
+.button {
+  background-color: var(--c-bekb-primary, #dc0528);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.7em 1em;
+  position: relative;
+
+  &:hover {
+    background-color: #aa112d;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__timer {
+    position: absolute;
+    bottom: 0;
+    //right:0;
+    left: 0;
+    top: 0;
+    background-color: #aa112d;
+  }
+}

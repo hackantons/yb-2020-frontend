@@ -25,3 +25,9 @@ body {
   font-weight: 300;
   color: var(--c-text);
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
