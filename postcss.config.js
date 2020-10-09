@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     require('postcss-import')(),
+    require('@tailwindcss/ui'),
     require('tailwindcss')(),
     ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
     require('postcss-preset-env')({
