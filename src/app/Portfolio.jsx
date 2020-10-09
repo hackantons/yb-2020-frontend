@@ -32,7 +32,7 @@ const Portfolio = ({
             key={key}
             assetKey={key}
             value={value}
-            modifyAsset={modifyAsset}
+            modifyAsset={value => modifyAsset(key, value)}
           />
         ))}
       </div>
