@@ -1,6 +1,8 @@
 import React from 'react';
 import './Event.css';
 
+import { Button } from '../theme';
+
 const Event = ({ title, description, onConfirmEvent }) => {
   return (
     <div className="event">
@@ -10,7 +12,9 @@ const Event = ({ title, description, onConfirmEvent }) => {
       </div>
       <h2>{title}</h2>
       <p>{description}</p>
-      <button onClick={onConfirmEvent}>Weiter</button>
+      <Button timerKey={title} clickAfter={10} onClick={onConfirmEvent}>
+        Weiter
+      </Button>
     </div>
   );
 };
