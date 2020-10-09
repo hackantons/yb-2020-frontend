@@ -26,7 +26,7 @@ const App = () => {
   });
 
   const currentEvent = React.useMemo(
-    () => ({ ...allEvents[step], timer: step !== 0 }),
+    () => ({ ...allEvents[step], first: step === 0 }),
     [step]
   );
 
@@ -57,7 +57,7 @@ const App = () => {
         title={currentEvent.title}
         description={currentEvent.description}
         onConfirmEvent={onConfirmEvent}
-        setTimer={currentEvent.timer}
+        isFirst={currentEvent.first}
       />
       -----------------------------------------
       <Assets

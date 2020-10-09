@@ -5,7 +5,7 @@ import { Button } from '../theme';
 
 const TIMEOUT = 0;
 
-const Event = ({ title, description, onConfirmEvent, setTimer }) => {
+const Event = ({ title, description, onConfirmEvent, isFirst }) => {
   return (
     <div className="event">
       <div className="event__newspaper">
@@ -16,10 +16,10 @@ const Event = ({ title, description, onConfirmEvent, setTimer }) => {
       <p>{description}</p>
       <Button
         timerKey={title}
-        clickAfter={setTimer ? TIMEOUT : 0}
+        clickAfter={isFirst ? TIMEOUT : 0}
         onClick={onConfirmEvent}
       >
-        Weiter
+        {isFirst ? 'Starten' : 'Weiter'}
       </Button>
     </div>
   );
