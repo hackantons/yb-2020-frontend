@@ -9,8 +9,8 @@
   "author": "Nico Martin",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn serve & yarn build",
-    "prod": "yarn build:prod",
+    "dev": "npm run serve & npm run build",
+    "prod": "npm run build:prod",
     "build": "webpack -d --watch",
     "build:prod": "webpack -p",
     "serve": "webpack-dev-server --open"
