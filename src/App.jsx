@@ -13,11 +13,11 @@ const App = () => {
   const [total, setTotal] = useState(0);
   const [locked, setLocked] = useState(false);
   const [step, setStep] = useState(0);
-  const [bank, setBank] = useState(100);
+  const [bank, setBank] = useState(1000);
   const [portfolio, setPortfolio] = useState({
-    [ASSETS.IMMO]: 20,
-    [ASSETS.COMMODITIES]: 20,
-    [ASSETS.SHARES]: 20,
+    [ASSETS.IMMO]: 0,
+    [ASSETS.COMMODITIES]: 0,
+    [ASSETS.SHARES]: 0,
   });
 
   const currentEvent = React.useMemo(() => EVENTS[step], [step]);
@@ -43,6 +43,7 @@ const App = () => {
 
   return (
     <div>
+      <img src="/assets/static/logo.svg" />
       <Assets
         locked={locked}
         portfolio={portfolio}

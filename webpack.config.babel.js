@@ -24,7 +24,6 @@ import PurgecssPlugin from 'purgecss-webpack-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import glob from 'glob-all';
-import tailwindcss from 'tailwindcss';
 
 module.exports = (env, argv) => {
   const dirDist = path.resolve(__dirname, 'dist');
@@ -142,7 +141,6 @@ module.exports = (env, argv) => {
               options: {
                 plugins: () => [
                   require('postcss-nested'),
-                  tailwindcss('./tailwind.config.js'),
                   require('autoprefixer'),
                 ],
               },
