@@ -10,9 +10,9 @@ const Event = ({ title, description, onConfirmEvent, isFirst }) => {
     <div className="event">
       <div className="event__newspaper">
         <img
-              className="event__newspaper__logo"
-              src={`/assets/static/bernerzeitung.svg`}
-            />
+          className="event__newspaper__logo"
+          src={`/assets/static/bernerzeitung.svg`}
+        />
         <div className="event__newspaper__date">01. Januar 2020</div>
       </div>
       <h2>{title}</h2>

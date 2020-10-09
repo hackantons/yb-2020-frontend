@@ -4,7 +4,37 @@
     width: 20px;
     border: 1px solid #000;
     height: 150px;
-    
+    transform: skewY(-30deg);
+  //transform: rotateX(45deg) rotateZ(-45deg); transform-style: preserve-3d;
+
+    &:after {
+      content: '';
+      display: block;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      z-index: 4;
+
+      //transform: rotateY(90deg);
+     transform-origin: left;
+      transform: scale(-1) skewY(60deg);
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      background-color: green;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      z-index: 5;
+      transform: rotateX(10deg);
+    }
   }
 
   &__bank {
