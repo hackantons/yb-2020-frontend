@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState } from 'react';
+import './App.css';
 
 import Assets from '@app/Assets';
 import Event from '@app/Event';
@@ -42,7 +43,8 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="app">
+      <div class="app__header"></div>
       <img src="/assets/static/logo.svg" />
       <Assets
         locked={locked}
