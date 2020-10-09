@@ -18,22 +18,22 @@
       top: 0;
       z-index: 4;
 
-      //transform: rotateY(90deg);
+
      transform-origin: left;
-      transform: scale(-1) skewY(60deg);
+     transform: scale(-1) skewY(50deg);
     }
 
     &:before {
       content: '';
       display: block;
-      background-color: green;
+      background-color: #922929;
       position: absolute;
       top: 0;
       left: 0;
       width: 20px;
       height: 20px;
       z-index: 5;
-      transform: rotateX(10deg);
+      transform: translate3d(-9px, -21px, 10px) skewX(40deg);
     }
   }
 
