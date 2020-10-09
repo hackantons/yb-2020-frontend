@@ -31,7 +31,6 @@ const Asset = ({ assetKey, value, modifyAsset, totalAssets }) => {
   const range = max - min; // the visible icon is between 80 and 5%
 
   let emptyHeight = range - (range * percentageOfTotalAssets) + min;
-  let emptyHeight = totalAssets ? 100 - (value / totalAssets) * 100 : 100;
   emptyHeight = emptyHeight.toString() + '%';
 
   React.useEffect(() => {
