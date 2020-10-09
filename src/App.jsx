@@ -50,16 +50,18 @@ const App = () => {
   }
 
   return (
-    <div>
-      <div className="app__header"></div>
-      <img className="logo" src="/assets/static/logo.svg" />
+    <div className="app">
+      <div className="app__header">
+        <img className="app__header__logo" src="/assets/static/logo.svg" />
+        <div className="app__header__slogan">Foobar</div>
+      </div>
       <Event
         title={currentEvent.title}
         description={currentEvent.description}
         onConfirmEvent={onConfirmEvent}
         isFirst={currentEvent.first}
       />
-      -----------------------------------------
+
       <Assets
         locked={locked}
         portfolio={portfolio}

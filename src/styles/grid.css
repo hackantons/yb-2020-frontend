@@ -2,6 +2,6 @@
     --grid: 4px;
 
     --gap-s: var(--grid);
-    --gap-m: calc( var(--grid) * 2 );
-    --gap-l: calc( var(--grid) * 4 );
+    --gap-m: calc( var(--grid) * 4 );
+    --gap-l: calc( var(--grid) * 8 );
 }

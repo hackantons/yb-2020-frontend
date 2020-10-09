@@ -3,7 +3,9 @@
     margin: 0 auto;
 }
 .app__header {
-    height: 10px;
+    padding-top: var(--gap-s);
     margin-bottom: var(--gap-l);
-    background-color: var(--c-bekb-primary);
+    border-top: 10px solid var(--c-bekb-primary);
+}
+.app__header__logo {
 }
