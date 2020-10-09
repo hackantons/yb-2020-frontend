@@ -1,9 +1,9 @@
 .app {
     max-width: 500px;
-    min-height: 100vh;
+    height: calc( 100vh - 10px );
     margin: 0 auto;
     border-top: 10px solid var(--c-bekb-primary);
 
     display: grid;
-    grid-template-rows: auto 25vh;
+    grid-template-rows: 75vh 25vh;
 }

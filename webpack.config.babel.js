@@ -4,8 +4,8 @@ import fs from 'fs';
 require('dotenv').config();
 
 const app = {
-  title: 'Progressive ToDo List',
-  short: 'PWA ToDo',
+  title: 'Investy McInvestface',
+  short: 'BEKB Invest Game',
   description: 'A ToDo List as a Progressive Web App',
 };
 
