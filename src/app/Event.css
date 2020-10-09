@@ -3,6 +3,7 @@
   margin: var(--gap-l) var(--gap-s);
   box-shadow: 1px 7px 8px rgb(136 136 136 / 43%);
   color: var( --c-bz-header );
+  background-color: #fff;
 }
 .event__newspaper {
     display: grid;
