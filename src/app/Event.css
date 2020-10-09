@@ -15,16 +15,20 @@
     border-bottom: 1px solid var(--c-grau);
 }
 
+.event__newspaper__logo {
+    max-height: 30px;
+}
 .event__newspaper__date {
     text-align: right;
     min-width: 100px;
-    padding-bottom: 5px; /* align optically to logo */
+    font-size: 80%;
+    padding-bottom: 1px; /* align optically to logo */
     color: var(--c-bz-highlight);
 }
 
 .event h2 {
     font-family: 'Source Serif Pro', serif;
-    font-size: 40px;
+    font-size: 35px;
     margin-bottom: var(--gap-l);
 }
 .event p {
