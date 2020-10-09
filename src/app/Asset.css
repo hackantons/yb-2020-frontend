@@ -19,13 +19,13 @@
     position: absolute;
     width: 90%;
     font-size: 30px;
-    bottom: 1.3em;
-    right: -0.1em;
+    //bottom: 1.3em;
+    //right: -0.1em;
     text-align: right;
     transform-origin: center;
     color: var(--c-weiss);
     font-weight: 900;
-    transform: rotate3d(1, 1, 1, -68deg) skewX(10deg);
+    transform: rotate3d(1, 1, 1, -68deg) skewX(10deg) translateY(-130%) translateX(45%);
     text-shadow: -1px 0px var(--c-text-shadow), -2px 0px var(--c-text-shadow), -3px 1px var(--c-text-shadow), -4px 2px var(--c-text-shadow), -3px -2px var(--c-card-shadow);
     transition: color 1s ease-in, text-shadow 1s ease-in;
 

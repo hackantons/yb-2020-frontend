@@ -20,12 +20,12 @@ const App = () => {
   const [bank, setBank] = useState(1000);
   const [portfolio, setPortfolio] = useState({
     [ASSETS.IMMO]: 0,
-    [ASSETS.SHARES]: 0,
-    [ASSETS.COMMODITIES]: 0,
+    [ASSETS.SHARES]: 100,
+    [ASSETS.COMMODITIES]: 1000,
   });
 
   const currentEvent = React.useMemo(
-    () => ({ ...allEvents[step], first: step === 0 }),
+    () => ({ ...allEvents[step], isFirst: step === 0 }),
     [step]
   );
 
@@ -58,7 +58,7 @@ const App = () => {
             title={currentEvent.title}
             description={currentEvent.description}
             onConfirmEvent={onConfirmEvent}
-            isFirst={currentEvent.first}
+            isFirst={currentEvent.isFirst}
           />
           <Portfolio
             locked={locked}

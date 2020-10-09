@@ -5,7 +5,7 @@
   grid-template-rows: var(--newspaper-height) auto 50px;
   row-gap: var(--gap-l);
   padding: var(--gap-l);
-  margin: var(--gap-l) var(--gap-s);
+  margin: var(--gap-l) var(--gap-m);
   box-shadow: 0 2px 5px rgba(0, 0, 0, .35);
   color: var(--c-bz-header);
 }
@@ -36,8 +36,6 @@
 
 .event h2 {
   font-family: 'Source Serif Pro', serif;
-  font-size: 34px;
-  line-height: 1.1;
   margin-bottom: var(--gap-l);
 }
 

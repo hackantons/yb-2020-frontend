@@ -1,11 +1,12 @@
 .konto {
-  padding: 0 var(--gap-m);
+  padding: 0 var(--gap-l);
+
   &__bar {
     position: relative;
     width: 20px;
     border: 1px solid #000;
     height: 150px;
-    transform: skewY(-30deg) scale(0.8);
+    transform: skewY(-30deg) scale(0.6);
 
     &:after {
       content: '';
@@ -17,10 +18,8 @@
       left: 0;
       top: 0;
       z-index: 4;
-
-
-     transform-origin: left;
-     transform: scale(-1) skewY(50deg);
+      transform-origin: left;
+      transform: scale(-1) skewY(50deg);
     }
 
     &:before {

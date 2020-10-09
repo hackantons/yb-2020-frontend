@@ -6,6 +6,7 @@ import { Button } from '../theme';
 const TIMEOUT = 0;
 
 const Event = ({ title, description, onConfirmEvent, isFirst }) => {
+  console.log('isFirst', isFirst);
   return (
     <div className="event">
       <div className="event__newspaper">
@@ -33,7 +34,7 @@ const Event = ({ title, description, onConfirmEvent, isFirst }) => {
       <Button
         className="event__next"
         timerKey={title}
-        clickAfter={isFirst ? TIMEOUT : 0}
+        clickAfter={isFirst ? 0 : TIMEOUT}
         onClick={onConfirmEvent}
       >
         {isFirst ? "Los geht's!" : 'Weiter'}
