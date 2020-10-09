@@ -1,9 +1,8 @@
 .event {
-    border: 1px solid #888;
-    padding: var(--gap-l);
-    margin: var(--gap-l) var(--gap-s);
-    box-shadow: 5px 10px 10px #888888;
-    color: var( --c-bz-header );
+  padding: var(--gap-l);
+  margin: var(--gap-l) var(--gap-s);
+  box-shadow: 1px 7px 8px rgb(136 136 136 / 43%);
+  color: var( --c-bz-header );
 }
 .event__newspaper {
     display: grid;
