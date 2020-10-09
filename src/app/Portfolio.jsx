@@ -13,7 +13,7 @@ const Portfolio = ({
   totalAssets,
 }) => {
   const modifyAsset = (key, value) => {
-    const newPortfolioValue = portfolio[key] + value;
+    let newPortfolioValue = portfolio[key] + value;
     const newBank = bank - value;
     if (newBank < 0 || newPortfolioValue < 0) {
       return;
