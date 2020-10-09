@@ -8,6 +8,7 @@
     --c-text: var(--c-schwarz);
     --c-text-header: var(--c-rot-bekb);
 
+    --c-bz-text: rgb(32, 35, 70);
 
     /* Copied from bekb.ch for reference - but not yet used in the app */
     --TEMP-navigation-background: #e0e5e8;

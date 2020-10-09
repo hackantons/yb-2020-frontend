@@ -1,0 +1,24 @@
+.event {
+    border: 1px solid #888;
+    padding: var(--gap-l);
+    margin: var(--gap-l);
+    box-shadow: 5px 10px 10px #888888;
+    color: var( --c-bz-header );
+}
+.event__newspaper {
+    display: flex;
+    justify-content: space-between; 
+    padding-bottom: var(--gap-l);
+    margin-bottom: var(--gap-l);
+    border-bottom: 1px solid var(--c-schwarz);
+}
+
+.event h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 40px;
+    margin-bottom: var(--gap-l);
+}
+.event p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-bottom: var(--gap-l);
+}

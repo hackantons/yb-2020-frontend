@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div>
-      <div class="app__header"></div>
+      <div className="app__header"></div>
       <img className="logo" src="/assets/static/logo.svg" />
       <Event
         title={currentEvent.title}
