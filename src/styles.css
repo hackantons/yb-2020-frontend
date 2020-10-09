@@ -19,7 +19,7 @@ div#app {
 
 .asset {
   height: 150px;
-  background: #dcd2d2;
+  background: #e2d4b3;
   width: calc(33% - 20px);
   padding: 10px;
   box-sizing: border-box;
@@ -32,9 +32,14 @@ div#app {
 .asset-value {
   display: block;
   font-size: 30px;
-  margin-top: 10px;
+  margin-top: -20px;
   margin-bottom: 20px;
   text-align: center;
   transform-origin: center;
-  transform: rotateZ(-15deg);
+  transform: rotateZ(-30deg);
+}
+
+h2 {
+  margin-bottom: 10px;
+  margin-top: 15px;
 }

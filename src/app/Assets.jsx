@@ -20,7 +20,10 @@ const Assets = ({ locked = false, portfolio, setPortfolio, bank, setBank }) => {
       <div className="assets">
         {Object.entries(portfolio).map(([name, value]) => (
           <p className="asset">
-            <span className="asset-name">{name}</span>
+            <img
+              className="asset-image-filled"
+              src={`/assets/static/${name}.svg`}
+            />
             <span className="asset-value">{value} </span>
             <button onClick={() => modifyAsset(name, -10)}>-</button> /{' '}
             <button onClick={() => modifyAsset(name, +10)}>+</button>
