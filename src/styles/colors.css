@@ -1,0 +1,25 @@
+:root {
+    --c-weiss: rgb(255, 255, 255);
+    --c-schwarz: rgb(0, 0, 0);
+    --c-bekb-primary: rgb(204, 0, 51);
+    --c-bekb-visited: rgb(170, 17, 45);
+    --c-bekb-hover: rgb(137, 16, 35);
+
+    --c-text: var(--c-schwarz);
+    --c-text-header: var(--c-rot-bekb);
+
+
+    /* Copied from bekb.ch for reference - but not yet used in the app */
+    --TEMP-navigation-background: #e0e5e8;
+    --TEMP-navigation-line: #c4ccd3;
+    --TEMP-languageswitch-line: #545b68;
+    --TEMP-container-highlight: #ebe2cd;
+    --TEMP-card-background: #ebe2cd;
+    --TEMP-card-background-active: #f4f0e6;
+    --TEMP-card-line: #888067;
+    --TEMP-footer-background: #545b68;
+    --TEMP-footer-text: #ffffff;
+    --TEMP-footer-link: #e0e5e8;
+    --TEMP-footer-link-focus: #000000;
+    --TEMP-footer-link-focus-background: #c4ccd3;
+}

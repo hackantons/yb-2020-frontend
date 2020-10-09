@@ -17,13 +17,19 @@ const Assets = ({ locked = false, portfolio, setPortfolio, bank, setBank }) => {
       <h2>Bank</h2>
       <p>Kontostand: {bank}</p>
       <h2>Assets</h2>
-      {Object.entries(portfolio).map(([name, value]) => (
-        <p>
-          {name}: {value}{' '}
-          <button onClick={() => modifyAsset(name, -10)}>-</button> /{' '}
-          <button onClick={() => modifyAsset(name, +10)}>+</button>
-        </p>
-      ))}
+      <div className="assets">
+        {Object.entries(portfolio).map(([name, value]) => (
+          <p className="asset">
+            <img
+              className="asset-image-filled"
+              src={`/assets/static/${name}.svg`}
+            />
+            <span className="asset-value">{value} </span>
+            <button onClick={() => modifyAsset(name, -10)}>-</button> /{' '}
+            <button onClick={() => modifyAsset(name, +10)}>+</button>
+          </p>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,47 @@
 @import "styles/reset.css";
-@import "styles/document.css";
+@import "styles/grid.css";
 @import "styles/typography.css";
+@import "styles/colors.css";
+@import "styles/document.css";
+
+div#app {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.assets {
+  display: flex;
+  justify-content: space-between;
+}
+
+.asset {
+  height: 150px;
+  background: #e2d4b3;
+  width: calc(33% - 20px);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.asset-name {
+  display: block;
+}
+
+.asset-value {
+  display: block;
+  font-size: 30px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  text-align: center;
+  transform-origin: center;
+  transform: rotateZ(-30deg);
+}
+
+h2 {
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
