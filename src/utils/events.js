@@ -1,5 +1,11 @@
 import { ASSETS } from '@utils/constants';
 
+export const INIT_EVENT = {
+  title: 'Welcome',
+  description: 'Das ist das supercoole BEKB Spiel',
+  modifiers: {},
+};
+
 export const EVENTS = [
   {
     title: 'Test',
