@@ -12,7 +12,7 @@ const Event = ({ title, description, onConfirmEvent }) => {
       </div>
       <h2>{title}</h2>
       <p>{description}</p>
-      <Button timerKey={title} clickAfter={10} onClick={onConfirmEvent}>
+      <Button timerKey={title} clickAfter={0} onClick={onConfirmEvent}>
         Weiter
       </Button>
     </div>
