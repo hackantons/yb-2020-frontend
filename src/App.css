@@ -17,6 +17,7 @@
 }
 .app__header__logo {
     flex-grow: 1;
+    margin-left: var(--gap-m);
 }
 .app__header__slogan {
     flex-grow: 3;
