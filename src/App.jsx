@@ -2,12 +2,16 @@ import ReactDOM from 'react-dom';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+import { shuffle } from '@utils/helpers';
+
 import Assets from '@app/Assets';
 import Event from '@app/Event';
 import LeaderBoard from '@app/LeaderBoard';
 
 import { ASSETS } from '@utils/constants';
-import { EVENTS } from '@utils/events';
+import { EVENTS, INIT_EVENT } from '@utils/events';
+
+const allEvents = [INIT_EVENT, ...shuffle(EVENTS)];
 
 const App = () => {
   const [end, setEnd] = useState(false);
@@ -21,7 +25,10 @@ const App = () => {
     [ASSETS.SHARES]: 0,
   });
 
-  const currentEvent = React.useMemo(() => EVENTS[step], [step]);
+  const currentEvent = React.useMemo(
+    () => ({ ...allEvents[step], timer: step !== 0 }),
+    [step]
+  );
 
   const onConfirmEvent = () => {
     const modifiedAssets = {};
@@ -30,7 +37,7 @@ const App = () => {
     });
     setPortfolio({ ...portfolio, ...modifiedAssets });
 
-    if (EVENTS.length - 1 === step) {
+    if (allEvents.length - 1 === step) {
       const allAssets = Object.values(portfolio).reduce((acc, v) => v + acc, 0);
       setTotal(allAssets + bank);
       setEnd(true);
@@ -50,6 +57,7 @@ const App = () => {
         title={currentEvent.title}
         description={currentEvent.description}
         onConfirmEvent={onConfirmEvent}
+        setTimer={currentEvent.timer}
       />
       -----------------------------------------
       <Assets
