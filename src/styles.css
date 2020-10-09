@@ -4,35 +4,3 @@
 @import "styles/colors.css";
 @import "styles/document.css";
 
-
-.assets {
-  display: flex;
-  justify-content: space-between;
-}
-
-.asset {
-  height: 150px;
-  background: #e2d4b3;
-  width: calc(33% - 20px);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.asset-name {
-  display: block;
-}
-
-.asset-value {
-  display: block;
-  font-size: 30px;
-  margin-top: -20px;
-  margin-bottom: 20px;
-  text-align: center;
-  transform-origin: center;
-  transform: rotate3d(1, 1, 2, -46deg) translate3d(11px, 17px, -11px);
-}
-
-h2 {
-  margin-bottom: 10px;
-  margin-top: 15px;
-}
