@@ -4,3 +4,9 @@ body {
   font-weight: 300;
   color: #000;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
