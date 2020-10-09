@@ -2,24 +2,8 @@
     max-width: 500px;
     min-height: 100vh;
     margin: 0 auto;
-
-    display: grid;
-    grid-template-rows: 5vh auto 25vh;
-}
-.app__header {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: var(--gap-l);
-
-    padding-top: var(--gap-m);
-    margin-bottom: var(--gap-l);
     border-top: 10px solid var(--c-bekb-primary);
-}
-.app__header__logo {
-    flex-grow: 1;
-    margin-left: var(--gap-m);
-}
-.app__header__slogan {
-    flex-grow: 3;
-    font-weight: 600;
+
+    display: grid;
+    grid-template-rows: auto 25vh;
 }
