@@ -4,15 +4,6 @@
 @import "styles/colors.css";
 @import "styles/document.css";
 
-div#app {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.logo {
-  margin-bottom: 50px;
-  margin-top: 20px;
-}
 
 .assets {
   display: flex;

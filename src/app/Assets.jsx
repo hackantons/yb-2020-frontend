@@ -22,7 +22,7 @@ const Assets = ({ locked = false, portfolio, setPortfolio, bank, setBank }) => {
           <p className="asset">
             <img
               className="asset-image-filled"
-              src={`/assets/static/${name}.svg`}
+              src={`/assets/static/${name}.png`}
             />
             <span className="asset-value">{value} </span>
             <button onClick={() => modifyAsset(name, -10)}>-</button> /{' '}
