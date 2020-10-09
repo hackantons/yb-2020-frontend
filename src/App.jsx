@@ -46,7 +46,7 @@ const App = () => {
     <div className="app">
       <div className="app__header">
         <img className="app__header__logo" src="/assets/static/logo.svg" />
-        <div className="app__header__slogan">Foobar</div>
+        <div className="app__header__slogan">Hyppo the Trading Coach</div>
       </div>
       <Event
         title={currentEvent.title}

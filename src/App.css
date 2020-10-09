@@ -3,9 +3,18 @@
     margin: 0 auto;
 }
 .app__header {
-    padding-top: var(--gap-s);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: var(--gap-l);
+
+    padding-top: var(--gap-m);
     margin-bottom: var(--gap-l);
     border-top: 10px solid var(--c-bekb-primary);
 }
 .app__header__logo {
+    flex-grow: 1;
+}
+.app__header__slogan {
+    flex-grow: 3;
+    font-weight: 600;
 }
