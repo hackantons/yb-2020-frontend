@@ -1,0 +1,6 @@
+.portfolio {
+  &__assets {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -4,7 +4,7 @@ import './App.css';
 
 import { shuffle } from '@utils/helpers';
 
-import Assets from '@app/Assets';
+import Portfolio from '@app/Portfolio';
 import Event from '@app/Event';
 import LeaderBoard from '@app/LeaderBoard';
 
@@ -45,30 +45,31 @@ const App = () => {
     setStep(step + 1);
   };
 
-  if (end) {
-    return <LeaderBoard value={total} />;
-  }
-
   return (
     <div className="app">
       <div className="app__header">
         <img className="app__header__logo" src="/assets/static/logo.svg" />
         <div className="app__header__slogan">Hyppo the Trading Coach</div>
       </div>
-      <Event
-        title={currentEvent.title}
-        description={currentEvent.description}
-        onConfirmEvent={onConfirmEvent}
-        isFirst={currentEvent.first}
-      />
-
-      <Assets
-        locked={locked}
-        portfolio={portfolio}
-        setPortfolio={setPortfolio}
-        bank={bank}
-        setBank={setBank}
-      />
+      {end ? (
+        <LeaderBoard value={total} />
+      ) : (
+        <React.Fragment>
+          <Event
+            title={currentEvent.title}
+            description={currentEvent.description}
+            onConfirmEvent={onConfirmEvent}
+            isFirst={currentEvent.first}
+          />
+          <Portfolio
+            locked={locked}
+            portfolio={portfolio}
+            setPortfolio={setPortfolio}
+            bank={bank}
+            setBank={setBank}
+          />
+        </React.Fragment>
+      )}
     </div>
   );
 };

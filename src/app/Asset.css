@@ -1,0 +1,27 @@
+.asset {
+  height: 150px;
+  background: #e2d4b3;
+  width: calc(33% - 20px);
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+
+  &__name {
+    display: block;
+  }
+
+  &__value {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    font-size: 30px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+    transform-origin: center;
+    left: 50%;
+    font-weight: 900;
+    transform: rotate3d(1, 1, 2, -46deg) translateX(-50%);
+    text-shadow: -4px 0px rgba(0,0,0,0.2);
+  }
+}
