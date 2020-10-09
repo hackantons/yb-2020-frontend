@@ -53,7 +53,7 @@ const App = () => {
         description={currentEvent.description}
         onConfirmEvent={onConfirmEvent}
       />
-      -----------------------------------------
+
       <Assets
         locked={locked}
         portfolio={portfolio}
