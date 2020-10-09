@@ -32,8 +32,8 @@ const Portfolio = ({
             key={key}
             assetKey={key}
             value={value}
+            modifyAsset={value => modifyAsset(key, value)}
             totalAssets={totalAssets}
-            modifyAsset={modifyAsset}
           />
         ))}
       </div>

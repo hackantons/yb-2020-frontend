@@ -2,11 +2,16 @@ import React from 'react';
 import ContUp from 'react-countup';
 import './Asset.css';
 
-const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
+const Asset = ({ assetKey, value, modifyAsset, totalAssets }) => {
+  const [dragging, setDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [x, setX] = React.useState(0);
+  const lastModifiedValue = React.useRef();
+
+  /* this is how code looks when a designer codes and most likely needs to be refactored :) */
   const percentageOfTotalAssets = totalAssets ? value / totalAssets : 0;
   let min = 5;
   let max = 80;
-
 
   switch (assetKey) {
     case 'real-estate':
@@ -26,10 +31,32 @@ const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
   const range = max - min; // the visible icon is between 80 and 5%
 
   let emptyHeight = range - (range * percentageOfTotalAssets) + min;
+  let emptyHeight = totalAssets ? 100 - (value / totalAssets) * 100 : 100;
   emptyHeight = emptyHeight.toString() + '%';
 
+  React.useEffect(() => {
+    const toSet = lastModifiedValue.current ? x - lastModifiedValue.current : x;
+    modifyAsset(toSet);
+    lastModifiedValue.current = toSet;
+  }, [x]);
+
   return (
-    <p className="asset">
+    <div
+      onTouchStart={e => {
+        setDragging(true);
+        setStartX(e.touches[0].clientX);
+      }}
+      onTouchEnd={() => {
+        setDragging(false);
+        setStartX(0);
+      }}
+      onTouchMove={e => {
+        if (dragging) {
+          setX((startX - e.touches[0].clientX) * -1);
+        }
+      }}
+      className="asset"
+    >
       <div className="asset__icons">
         <img
           className="asset__image--filled"
@@ -42,12 +69,10 @@ const Asset = ({ assetKey, value, totalAssets, modifyAsset }) => {
           />
         </div>
       </div>
-      <span className="asset__value">
-        <ContUp preserveValue start={0} end={value} />
-      </span>
-      <button onClick={() => modifyAsset(assetKey, -100)}>-</button> /{' '}
-      <button onClick={() => modifyAsset(assetKey, +100)}>+</button>
-    </p>
+      <span className="asset__value">{value}</span>
+      <button onClick={() => modifyAsset(-100)}>-</button> /{' '}
+      <button onClick={() => modifyAsset(+100)}>+</button>
+    </div>
   );
 };
 
