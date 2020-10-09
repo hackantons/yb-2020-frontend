@@ -5,26 +5,30 @@
   /* padding: 10px; */
   box-sizing: border-box;
   position: relative;
+
   * {
     pointer-events: none;
   }
+
   &__name {
     display: block;
   }
+
   &__value {
     display: block;
     position: absolute;
-    bottom: 10px;
+    width: 90%;
     font-size: 30px;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    text-align: center;
+    bottom: 1.2em;
+    right: -0.1em;
+    text-align: right;
     transform-origin: center;
-    left: 50%;
+    color: var(--c-weiss);
     font-weight: 900;
     transform: rotate3d(1, 1, 1, -68deg) skewX(10deg);
-    color: var(--c-weiss);
     text-shadow: -1px 0px var(--c-text-shadow), -2px 0px var(--c-text-shadow), -3px 1px var(--c-text-shadow), -4px 2px var(--c-text-shadow), -3px -2px var(--c-card-shadow);
+    transition: color 1s ease-in, text-shadow 1s ease-in;
+
     &.increase {
       animation-duration: 1s;
       animation-name: increase;
