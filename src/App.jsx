@@ -43,19 +43,19 @@ const App = () => {
 
   return (
     <div>
-      <img src="/assets/static/logo.svg" />
+      <img className="logo" src="/assets/static/logo.svg" />
+      <Event
+        title={currentEvent.title}
+        description={currentEvent.description}
+        onConfirmEvent={onConfirmEvent}
+      />
+      -----------------------------------------
       <Assets
         locked={locked}
         portfolio={portfolio}
         setPortfolio={setPortfolio}
         bank={bank}
         setBank={setBank}
-      />
-      -----------------------------------------
-      <Event
-        title={currentEvent.title}
-        description={currentEvent.description}
-        onConfirmEvent={onConfirmEvent}
       />
     </div>
   );
