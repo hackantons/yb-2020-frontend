@@ -153,6 +153,10 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      alias: {
+        '@app': `${dirSrc}/app/`,
+        '@utils': `${dirSrc}/utils/`,
+      },
     },
   };
 };
