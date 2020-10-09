@@ -15,7 +15,6 @@ const allEvents = [INIT_EVENT, ...shuffle(EVENTS)];
 
 const App = () => {
   const [end, setEnd] = useState(false);
-  const [total, setTotal] = useState(0);
   const [locked, setLocked] = useState(false);
   const [step, setStep] = useState(0);
   const [bank, setBank] = useState(1000);
@@ -30,16 +29,20 @@ const App = () => {
     [step]
   );
 
+  const totalAssets = React.useMemo(
+    () => Object.values(portfolio).reduce((acc, v) => v + acc, 0),
+    [portfolio]
+  );
+
+  const total = React.useMemo(() => totalAssets + bank, [totalAssets, bank]);
+
   const onConfirmEvent = () => {
     const modifiedAssets = {};
     Object.entries(currentEvent.modifiers).map(([asset, multipl]) => {
       modifiedAssets[asset] = portfolio[asset] * multipl;
     });
     setPortfolio({ ...portfolio, ...modifiedAssets });
-
     if (allEvents.length - 1 === step) {
-      const allAssets = Object.values(portfolio).reduce((acc, v) => v + acc, 0);
-      setTotal(allAssets + bank);
       setEnd(true);
     }
     setStep(step + 1);
@@ -67,6 +70,7 @@ const App = () => {
             setPortfolio={setPortfolio}
             bank={bank}
             setBank={setBank}
+            totalAssets={totalAssets}
           />
         </React.Fragment>
       )}

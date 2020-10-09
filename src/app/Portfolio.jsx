@@ -2,6 +2,7 @@ import React from 'react';
 
 import './Portfolio.css';
 import Asset from '@app/Asset';
+import Konto from '@app/Konto';
 
 const Portfolio = ({
   locked = false,
@@ -9,6 +10,7 @@ const Portfolio = ({
   setPortfolio,
   bank,
   setBank,
+  totalAssets,
 }) => {
   const modifyAsset = (key, value) => {
     const newPortfolioValue = portfolio[key] + value;
@@ -23,10 +25,8 @@ const Portfolio = ({
 
   return (
     <div className="portfolio">
-      <h2 className="portfolio__title">Bank</h2>
-      <p>Kontostand: {bank}</p>
-      <h2>Assets</h2>
       <div className="portfolio__assets">
+        <Konto bank={bank} assets={totalAssets} />
         {Object.entries(portfolio).map(([key, value]) => (
           <Asset
             key={key}
