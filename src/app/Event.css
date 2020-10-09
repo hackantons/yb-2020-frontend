@@ -12,7 +12,7 @@
 
     padding-bottom: var(--gap-m);
     margin-bottom: var(--gap-l);
-    border-bottom: 1px solid var(--c-schwarz);
+    border-bottom: 1px solid var(--c-grau);
 }
 
 .event__newspaper__date {

@@ -1,8 +1,8 @@
 .asset {
   height: 150px;
-  background: #e2d4b3;
-  width: calc(33% - 20px);
-  padding: 10px;
+  /* background: #e2d4b3; */
+  width: 33%;
+  /* padding: 10px; */
   box-sizing: border-box;
   position: relative;
   * {
@@ -27,4 +27,15 @@
     transform: rotate3d(1, 1, 1, -68deg) skewX(10deg);
     text-shadow: -4px 0px rgba(0,0,0,0.2);
   }
+}
+
+.asset__icons {
+  position: relative;
+}
+.asset__icon__empty {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: height 0.4s linear;
 }
