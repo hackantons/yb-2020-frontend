@@ -16,6 +16,7 @@
   transform: scale(1);
   transition: all 400ms;
   transform-origin: bottom center;
+  min-height: 0;
 
   &[data-fade="out"] {
     opacity: 0;
@@ -48,7 +49,10 @@
 }
 
 .event__text {
-  overflow-y: auto;
+  flex-grow: 1;
+  overflow: auto;
+  /* for Firefox */
+  min-height: 0;
 }
 .event__unexpected__tag {
   display: inline-block;
