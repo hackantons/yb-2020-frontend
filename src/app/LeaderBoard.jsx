@@ -87,22 +87,26 @@ const LeaderBoard = ({ value }) => {
               </tr>
             ))}
           </table>
-          <Button onClick={() => setShadowBox(true)}>
-            Spielstand speichern
-          </Button>
-          <Button
-            onClick={() => {
-              window.location.reload(true);
-            }}
-          >
-            Spiel neu starten
-          </Button>
+          <div className="leader-board-buttons">
+            <Button onClick={() => setShadowBox(true)}>
+              Spielstand speichern
+            </Button>
+            <Button
+              onClick={() => {
+                window.location.reload(true);
+              }}
+            >
+              Spiel neu starten
+            </Button>
+          </div>
         </React.Fragment>
       )}
       {shadowBox && (
         <ShadowBox close={() => setShadowBox(false)}>
-          <p>Spielstand: {formattedValue}.-</p>
-          <label for="name">name</label>
+          <p className="popup-score">Spielstand: {formattedValue}.-</p>
+          <label className="popup-label" for="name">
+            Name:
+          </label>
           <input
             id="name"
             name="name"

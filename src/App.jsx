@@ -7,6 +7,7 @@ import { shuffle } from '@utils/helpers';
 import Portfolio from '@app/Portfolio';
 import Event from '@app/Event';
 import LeaderBoard from '@app/LeaderBoard';
+import { ShadowBox, Button } from './theme';
 
 import { ASSETS } from '@utils/constants';
 import { EVENTS, INIT_EVENT } from '@utils/events';
@@ -14,6 +15,7 @@ import { EVENTS, INIT_EVENT } from '@utils/events';
 const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
 
 const App = () => {
+  const [shadowBox, setShadowBox] = React.useState(false);
   const [end, setEnd] = useState(false);
   const [locked, setLocked] = useState(false);
   const [step, setStep] = useState(0);
@@ -98,6 +100,49 @@ const App = () => {
             totalAssets={totalAssets}
           />
         </React.Fragment>
+      )}
+
+      <Button className="show-explanation" onClick={() => setShadowBox(true)}>
+        <img className="explanation" src={`/assets/static/info.svg`} />
+      </Button>
+
+      {shadowBox && (
+        <ShadowBox close={() => setShadowBox(false)}>
+          <div className="explanation">
+            <img
+              class="asset__image--filled explanation-icon"
+              src="/assets/static/real-estate.png"
+            ></img>
+            <p>
+              Dieses Icon stellt die Immobilien in deinem Portfdolio dar,
+              überlege dir gut ob es Sinn macht zu investieren
+            </p>
+            <img
+              class="asset__image--filled explanation-icon"
+              src="/assets/static/shares.png"
+            ></img>
+            <p>
+              Dieses Icon stellt die Aktien in deinem Portfdolio dar, Sie sind
+              volatiler als Rohstoffe und Immobilien.
+            </p>
+            <img
+              class="asset__image--filled explanation-icon"
+              src="/assets/static/commodities.png"
+            ></img>
+            <p>
+              Dieses Icon stellt die Rohstoffe in deinem Portfolio dar, die
+              Rohstoffe sind als Anlage stabiler, aber bringen weniger Gewinn
+            </p>
+            <img
+              class="asset__image--filled explanation-bar"
+              src="/assets/static/bar.png"
+            ></img>
+            <p>
+              Dieser Balken stellt dein Bankvermögen dar, dieses Geld kannst du
+              investieren oder bei der BEKB sicher lagern
+            </p>
+          </div>
+        </ShadowBox>
       )}
     </div>
   );
