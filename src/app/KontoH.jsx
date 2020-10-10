@@ -10,7 +10,7 @@ const KontoH = ({ bank, assets }) => {
     assets,
   ]);
   const investRatio = Math.ceil(100 - bankWidth);
-  const barWidth = Math.min(totalWealth / max * 100, 100);
+  const barWidth = Math.min((totalWealth / max) * 100, 100);
   console.log('bank', bank);
   console.log('assets', assets);
   console.log('barWidth', barWidth);
@@ -32,7 +32,7 @@ const KontoH = ({ bank, assets }) => {
         <span>2k</span>
         <span>3k</span>
       </div>
-    </div >
+    </div>
   );
 };
 

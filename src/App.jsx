@@ -91,14 +91,15 @@ const App = () => {
         <LeaderBoard className="app__event" value={total} />
       ) : (
         <React.Fragment>
-          <Event
-            title={unexpectedTitle || currentEvent.title}
-            description={unexpectedDescription || currentEvent.description}
-            onConfirmEvent={onConfirmEvent}
-            isFirst={currentEvent.isFirst}
-            unexpected={unexpectedTitle !== null}
-            className="app__event"
-          />
+          <div className="app__event">
+            <Event
+              title={unexpectedTitle || currentEvent.title}
+              description={unexpectedDescription || currentEvent.description}
+              onConfirmEvent={onConfirmEvent}
+              isFirst={currentEvent.isFirst}
+              unexpected={unexpectedTitle !== null}
+            />
+          </div>
           <Portfolio
             locked={locked}
             portfolio={portfolio}

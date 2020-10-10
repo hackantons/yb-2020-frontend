@@ -1,11 +1,14 @@
 .event {
   --newspaper-height: 50px;
 
-  display: grid;
-  grid-template-rows: var(--newspaper-height) auto 50px;
-  row-gap: var(--gap-l);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+//grid-template-rows: var(--newspaper-height) auto 50px;
+  //row-gap: var(--gap-l);
   padding: var(--gap-l);
-  margin: var(--gap-l) var(--gap-m);
+  //margin: var(--gap-l) var(--gap-m);
   box-shadow: 0 2px 5px rgba(0, 0, 0, .35);
   color: var(--c-bz-header);
 
@@ -71,4 +74,5 @@
 
 .event__next {
   width: 100%;
+  margin-top: auto;
 }
