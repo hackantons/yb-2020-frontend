@@ -1,4 +1,5 @@
 import React from 'react';
+import useOnlineStatus from '@rehooks/online-status';
 import { getLeaderboard } from '../utils/api';
 
 import { ShadowBox, Button } from '../theme';
@@ -12,6 +13,7 @@ const LeaderBoard = ({ value, className = '' }) => {
   const [loading, setLoading] = React.useState(true);
   const [shadowBox, setShadowBox] = React.useState(false);
   const [name, setName] = React.useState('');
+  const onlineStatus = useOnlineStatus();
 
   React.useEffect(() => {
     getLeaderboard.then(payload => {
@@ -54,67 +56,82 @@ const LeaderBoard = ({ value, className = '' }) => {
         />
         <div className="leaderboard__title">Leaderboard</div>
       </div>
-      {loading ? (
-        <p style={{ marginTop: '100px', textAlign: 'center' }}>loading..</p>
+      {!onlineStatus ? (
+        <p style={{ marginTop: '100px', textAlign: 'center' }}>
+          Das Leaderboard kann leider offline nicht angezeigt werden.
+          <br />
+          Aber zum Glück treffen sich unsere Experten auch offline gerne mit
+          dir: 031 666 18 80
+        </p>
       ) : (
         <React.Fragment>
-          <p className="leaderboard__cta">
-            <div className="leaderboard__rank">
-              Du hast mit{' '}
-              <span className="total">
-                {formattedValue.toLocaleString()} CHF
-              </span>
-              <h2>Platz {myPosition}</h2> erreicht.{' '}
-            </div>
-            {myPosition >= 6 ? (
-              <React.Fragment>
-                Da ist wohl noch etwas Verbesserungsbedarf. <br />
-                Mit echtem Geld braucht es mehr Wissen und dabei helfen unsere
-                Profis dir gerne:{' '}
-                <a
-                  class="leaderboard__advice"
-                  target="_blank"
-                  href="https://www.bekb.ch/services/beratung"
+          {loading ? (
+            <p style={{ marginTop: '100px', textAlign: 'center' }}>loading..</p>
+          ) : (
+            <React.Fragment>
+              <p className="leaderboard__cta">
+                <div className="leaderboard__rank">
+                  Du hast mit{' '}
+                  <span className="total">
+                    {formattedValue.toLocaleString()} CHF
+                  </span>
+                  <h2>Platz {myPosition}</h2> erreicht.{' '}
+                </div>
+                {myPosition >= 6 ? (
+                  <React.Fragment>
+                    Da ist wohl noch etwas Verbesserungsbedarf. <br />
+                    Mit echtem Geld braucht es mehr Wissen und dabei helfen
+                    unsere Profis dir gerne:{' '}
+                    <a
+                      class="leaderboard__advice"
+                      target="_blank"
+                      href="https://www.bekb.ch/services/beratung"
+                    >
+                      Beratung BEKB
+                    </a>
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    WOW! Das ist beeindruckend. <br />
+                    Wenn du dich mal mit unseren Profis unterhalten möchtest,{' '}
+                    <a
+                      class="leaderboard__advice"
+                      target="_blank"
+                      href="https://www.bekb.ch/services/beratung"
+                    >
+                      melde dich bei uns.
+                    </a>
+                  </React.Fragment>
+                )}
+              </p>
+              <h3 className="leaderboard__top5">Top 5</h3>
+              <table className="leaderboard__table" cellSpacing="0">
+                {leaderboard
+                  .slice(0, 5)
+                  .map(({ name, score, you = false }, i) => (
+                    <tr>
+                      <td>{i + 1}</td>
+                      <td className={you ? 'leaderboard__leader-you' : ''}>
+                        {name}
+                      </td>
+                      <td>{score}.-</td>
+                    </tr>
+                  ))}
+              </table>
+              <div className="leader-board-buttons">
+                <Button onClick={() => setShadowBox(true)}>
+                  Spielstand speichern
+                </Button>
+                <Button
+                  onClick={() => {
+                    window.location.reload(true);
+                  }}
                 >
-                  Beratung BEKB
-                </a>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                WOW! Das ist beeindruckend. <br />
-                Wenn du dich mal mit unseren Profis unterhalten möchtest,{' '}
-                <a
-                  class="leaderboard__advice"
-                  target="_blank"
-                  href="https://www.bekb.ch/services/beratung"
-                >
-                  melde dich bei uns.
-                </a>
-              </React.Fragment>
-            )}
-          </p>
-          <h3 className="leaderboard__top5">Top 5</h3>
-          <table className="leaderboard__table" cellSpacing="0">
-            {leaderboard.slice(0, 5).map(({ name, score, you = false }, i) => (
-              <tr>
-                <td>{i + 1}</td>
-                <td className={you ? 'leaderboard__leader-you' : ''}>{name}</td>
-                <td>{score}.-</td>
-              </tr>
-            ))}
-          </table>
-          <div className="leader-board-buttons">
-            <Button onClick={() => setShadowBox(true)}>
-              Spielstand speichern
-            </Button>
-            <Button
-              onClick={() => {
-                window.location.reload(true);
-              }}
-            >
-              Spiel neu starten
-            </Button>
-          </div>
+                  Spiel neu starten
+                </Button>
+              </div>
+            </React.Fragment>
+          )}
         </React.Fragment>
       )}
       {shadowBox && (
