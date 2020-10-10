@@ -32,6 +32,7 @@ const Portfolio = ({
         {!USE_H_KONTO && <Konto bank={bank} assets={totalAssets} />}
         {Object.entries(portfolio).map(([key, value]) => (
           <Asset
+            locked={locked}
             key={key}
             assetKey={key}
             value={value}

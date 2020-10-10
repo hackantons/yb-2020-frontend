@@ -5,6 +5,12 @@
   /* padding: 10px; */
   box-sizing: border-box;
   position: relative;
+  transition: all 200ms;
+
+  &--locked {
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
 
   * {
     pointer-events: none;

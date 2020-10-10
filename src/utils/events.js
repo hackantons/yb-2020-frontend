@@ -17,7 +17,7 @@ export const EVENTS = [
       [ASSETS.COMMODITIES]: 1.2,
     },
     unexpectedOutcome: {
-      propability: 1,
+      propability: 50,
       title: 'YB Meister - fällt ins Wasser',
       description: 'Desc',
       modifiers: {

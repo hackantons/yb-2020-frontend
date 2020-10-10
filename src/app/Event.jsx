@@ -5,8 +5,7 @@ import { Button } from '../theme';
 
 const TIMEOUT = 0;
 
-const Event = ({ title, description, onConfirmEvent, isFirst }) => {
-  console.log('isFirst', isFirst);
+const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
   return (
     <div className="event">
       <div className="event__newspaper">
@@ -28,7 +27,9 @@ const Event = ({ title, description, onConfirmEvent, isFirst }) => {
         )}
       </div>
       <div className="event__text">
-        <h2>{title}</h2>
+        <h2>
+          {unexpected && '!!!'} {title}
+        </h2>
         <p>{description}</p>
       </div>
       <Button
