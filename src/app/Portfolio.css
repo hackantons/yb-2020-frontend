@@ -1,4 +1,7 @@
 .portfolio {
+  margin-left: var(--gap-m);
+  margin-right: var(--gap-m);
+  
   &__assets {
     display: flex;
     justify-content: space-between;

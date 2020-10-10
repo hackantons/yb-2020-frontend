@@ -36,18 +36,18 @@
     transition: color 1s ease-in, text-shadow 1s ease-in;
 
     &.increase {
-      animation-duration: 1s;
+      animation-duration: 1.2s;
       animation-name: increase;
     }
     &.decrease {
-      animation-duration: 1s;
+      animation-duration: 1.2s;
       animation-name: decrease;
     }
   }
 }
 
 @keyframes increase {
-  10% {
+  20% {
     color: var(--c-increase-light);
     text-shadow: -1px 0px var(--c-increase), -2px 0px var(--c-increase), -3px 1px var(--c-increase), -4px 2px var(--c-increase), -3px -2px var(--c-card-shadow);
   }
@@ -58,7 +58,7 @@
 }
 
 @keyframes decrease {
-  10% {
+  20% {
     color: var(--c-decrease-light);
     text-shadow: -1px 0px var(--c-decrease), -2px 0px var(--c-decrease), -3px 1px var(--c-decrease), -4px 2px var(--c-decrease), -3px -2px var(--c-card-shadow);
   }

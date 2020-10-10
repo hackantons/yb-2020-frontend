@@ -1,19 +1,26 @@
 .konto-h {
-
-  &__bar {
-    height: 0.6em;
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    border: 1px solid #000;
-    //background-color: var(--c-bekb-primary);
+  &__label {
+    display: flex;
+    gap: var(--gap-m);
+    margin-bottom: var(--gap-m);
   }
 
-  &__bank {
+  &__bar {
+    height: 15px;
+    background: var(--c-hellgrau);
+  }
+  &__total {
+    height: 100%;
+    position: relative;
     background-color: var(--c-bekb-primary);
+    transition: width ease-in-out 200ms;
+  }
+  
+  &__bank {
+    background-color: var(--c-decrease);
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     top: 0;
     width: 0;
     will-change: width;
