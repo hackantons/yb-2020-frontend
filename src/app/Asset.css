@@ -1,10 +1,16 @@
 .asset {
-  height: 150px;
+  //height: 150px;
   /* background: #e2d4b3; */
   width: 33%;
   /* padding: 10px; */
   box-sizing: border-box;
   position: relative;
+  transition: all 200ms;
+
+  &--locked {
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
 
   * {
     pointer-events: none;

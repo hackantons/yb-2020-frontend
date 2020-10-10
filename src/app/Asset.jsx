@@ -2,7 +2,7 @@ import React from 'react';
 import ContUp from 'react-countup';
 import './Asset.css';
 
-const Asset = ({ assetKey, value, modifyAsset, totalAssets }) => {
+const Asset = ({ assetKey, value, modifyAsset, totalAssets, locked }) => {
   const [dragging, setDragging] = React.useState(false);
   const [startY, setStartY] = React.useState(0);
 
@@ -42,12 +42,12 @@ const Asset = ({ assetKey, value, modifyAsset, totalAssets }) => {
         setStartY(0);
       }}
       onTouchMove={e => {
-        if (dragging) {
+        if (dragging && !locked) {
           modifyAsset(startY - e.touches[0].clientY);
           setStartY(e.touches[0].clientY);
         }
       }}
-      className="asset"
+      className={`asset ${locked ? 'asset--locked' : ''}`}
     >
       <div className="asset__icons">
         <img

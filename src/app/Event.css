@@ -8,6 +8,22 @@
   margin: var(--gap-l) var(--gap-m);
   box-shadow: 0 2px 5px rgba(0, 0, 0, .35);
   color: var(--c-bz-header);
+
+  opacity: 1;
+  transform: scale(1);
+  transition: all 400ms;
+  transform-origin: bottom center;
+
+  &[data-fade="out"] {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg) translateX(-10%);
+  }
+
+  &[data-fade="in"] {
+    transition-duration: 0ms;
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg) translateX(10%);
+  }
 }
 
 .event__newspaper {

@@ -11,7 +11,7 @@ import LeaderBoard from '@app/LeaderBoard';
 import { ASSETS } from '@utils/constants';
 import { EVENTS, INIT_EVENT } from '@utils/events';
 
-const allEvents = [INIT_EVENT, ...shuffle(EVENTS)];
+const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
 
 const App = () => {
   const [end, setEnd] = useState(false);
@@ -23,6 +23,11 @@ const App = () => {
     [ASSETS.SHARES]: 100,
     [ASSETS.COMMODITIES]: 1000,
   });
+
+  const [unexpectedTitle, setUnexpectedTitle] = React.useState(null);
+  const [unexpectedDescription, setUnexpectedDescription] = React.useState(
+    null
+  );
 
   const currentEvent = React.useMemo(
     () => ({ ...allEvents[step], isFirst: step === 0 }),
@@ -38,14 +43,37 @@ const App = () => {
 
   const onConfirmEvent = () => {
     const modifiedAssets = {};
-    Object.entries(currentEvent.modifiers).map(([asset, multipl]) => {
-      modifiedAssets[asset] = portfolio[asset] * multipl;
-    });
-    setPortfolio({ ...portfolio, ...modifiedAssets });
-    if (allEvents.length - 1 === step) {
-      setEnd(true);
+    setLocked(true);
+
+    if (unexpectedTitle) {
+      setUnexpectedTitle(null);
+      setUnexpectedDescription(null);
+      setLocked(false);
+    } else {
+      const rand = Math.floor(Math.random() * Math.floor(100));
+      if (
+        'unexpectedOutcome' in currentEvent &&
+        rand < currentEvent.unexpectedOutcome.propability
+      ) {
+        setUnexpectedTitle(currentEvent.unexpectedOutcome.title);
+        setUnexpectedDescription(currentEvent.unexpectedOutcome.description);
+        Object.entries(currentEvent.unexpectedOutcome.modifiers).map(
+          ([asset, multipl]) => {
+            modifiedAssets[asset] = portfolio[asset] * multipl;
+          }
+        );
+      } else {
+        Object.entries(currentEvent.modifiers).map(([asset, multipl]) => {
+          modifiedAssets[asset] = portfolio[asset] * multipl;
+        });
+        setLocked(false);
+      }
+      setStep(step + 1);
+      setPortfolio({ ...portfolio, ...modifiedAssets });
+      if (allEvents.length - 1 === step) {
+        setEnd(true);
+      }
     }
-    setStep(step + 1);
   };
 
   return (
@@ -55,10 +83,11 @@ const App = () => {
       ) : (
         <React.Fragment>
           <Event
-            title={currentEvent.title}
-            description={currentEvent.description}
+            title={unexpectedTitle || currentEvent.title}
+            description={unexpectedDescription || currentEvent.description}
             onConfirmEvent={onConfirmEvent}
             isFirst={currentEvent.isFirst}
+            unexpected={unexpectedTitle !== null}
           />
           <Portfolio
             locked={locked}
