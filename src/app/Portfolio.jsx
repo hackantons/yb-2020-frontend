@@ -14,6 +14,7 @@ const Portfolio = ({
   bank,
   setBank,
   totalAssets,
+  changeFromStep,
 }) => {
   const modifyAsset = (key, value) => {
     let newPortfolioValue = portfolio[key] + value;
@@ -38,6 +39,7 @@ const Portfolio = ({
             value={value}
             modifyAsset={value => modifyAsset(key, value)}
             totalAssets={totalAssets}
+            changeFromStep={changeFromStep}
           />
         ))}
       </div>
