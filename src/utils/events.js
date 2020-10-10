@@ -40,7 +40,7 @@ export const EVENTS = [
     },
   },
   {
-    title: 'Bilateral Gefährdet',
+    title: 'Bilaterale Gefährdet',
     description:
       'Durch die neue SVP Abstimmung "Gotthard für Ausländer schliessen" sind die Bilateralen aufs neue gefährdet. Die EU zieht in Erwägung ein Embargo zu verkünden.',
     modifiers: {
