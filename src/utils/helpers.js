@@ -5,3 +5,5 @@ export const shuffle = a => {
   }
   return a;
 };
+
+export const formatValue = v => v.toFixed(2);

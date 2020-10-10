@@ -14,7 +14,7 @@ import { EVENTS, INIT_EVENT } from '@utils/events';
 const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
 
 const App = () => {
-  const [end, setEnd] = useState(false);
+  const [end, setEnd] = useState(true);
   const [locked, setLocked] = useState(false);
   const [step, setStep] = useState(0);
   const [bank, setBank] = useState(1000);

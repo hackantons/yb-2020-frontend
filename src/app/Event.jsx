@@ -52,7 +52,7 @@ const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
             src={`/assets/static/bernerzeitung.svg`}
           />
         )}
-        {isFirst ? (
+        {delayedEvent.isFirst ? (
           ''
         ) : (
           <div className="event__newspaper__date">01. Januar 2020</div>

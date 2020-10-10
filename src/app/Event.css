@@ -27,21 +27,19 @@
 }
 
 .event__newspaper {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: start;
-  column-gap: var(--gap-l);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid var(--c-grau);
+  padding: var(--gap-m) 0 var(--gap-l) 0;
 }
 
 .event__newspaper__logo {
-  max-height: calc(var(--newspaper-height) - var(--gap-m));
+  max-width: 50%;
 }
 
 .event__newspaper__date {
-  text-align: right;
-  min-width: 100px;
-  font-size: 80%;
+  font-size: 0.9em;
   line-height: calc(var(--newspaper-height) - var(--gap-m));
   color: var(--c-bz-highlight);
 }
