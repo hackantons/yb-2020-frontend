@@ -6,10 +6,42 @@ import { Button } from '../theme';
 const TIMEOUT = 0;
 
 const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
+  const [init, setInit] = React.useState(false);
+  const [fade, setFade] = React.useState('none');
+  const [delayedEvent, setDelayedEvent] = React.useState({
+    title,
+    description,
+    isFirst,
+  });
+
+  React.useEffect(() => {
+    if (!init) {
+      setDelayedEvent({
+        title,
+        description,
+        isFirst,
+      });
+      setInit(true);
+      return;
+    }
+    setFade('out');
+    setTimeout(() => {
+      setFade('in');
+    }, 400);
+    setTimeout(() => {
+      setFade('none');
+      setDelayedEvent({
+        title,
+        description,
+        isFirst,
+      });
+    }, 500);
+  }, [title, description, isFirst]);
+
   return (
-    <div className="event">
+    <div className="event" data-fade={fade}>
       <div className="event__newspaper">
-        {isFirst ? (
+        {delayedEvent.isFirst ? (
           <img
             className="event__newspaper__logo"
             src={`/assets/static/logo.svg`}
@@ -30,21 +62,21 @@ const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
         <h2>
           {unexpected ? (
             <Fragment>
-              Breaking! <span className="h2__light">{title}</span>
+              Breaking! <span className="h2__light">{delayedEvent.title}</span>
             </Fragment>
           ) : (
-            title
+            delayedEvent.title
           )}
         </h2>
-        <p>{description}</p>
+        <p>{delayedEvent.description}</p>
       </div>
       <Button
         className="event__next"
-        timerKey={title}
+        timerKey={delayedEvent.title}
         clickAfter={isFirst ? 0 : TIMEOUT}
         onClick={onConfirmEvent}
       >
-        {isFirst ? "Los geht's!" : 'Weiter'}
+        {delayedEvent.isFirst ? "Los geht's!" : 'Weiter'}
       </Button>
     </div>
   );

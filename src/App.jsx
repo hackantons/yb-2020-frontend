@@ -11,8 +11,7 @@ import LeaderBoard from '@app/LeaderBoard';
 import { ASSETS } from '@utils/constants';
 import { EVENTS, INIT_EVENT } from '@utils/events';
 
-//const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
-const allEvents = [INIT_EVENT, ...EVENTS.slice(0, 6)];
+const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
 
 const App = () => {
   const [end, setEnd] = useState(false);
