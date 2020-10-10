@@ -10,7 +10,8 @@ export const INIT_EVENT = {
 export const EVENTS = [
   {
     title: 'YB Meister',
-    description: 'Desc',
+    description:
+      'Wird YB es nochmals schaffen? YB muss sich nur noch im Spiel gegen Basel beweisen und dann haben sie den Titel!',
     modifiers: {
       [ASSETS.IMMO]: 1.4,
       [ASSETS.SHARES]: 1.2,
@@ -19,7 +20,8 @@ export const EVENTS = [
     unexpectedOutcome: {
       propability: 1,
       title: 'YB Meister - fällt ins Wasser',
-      description: 'Desc',
+      description:
+        'Basel gewinnt völlig überraschend in der Verlängerung mit einem 6:5 Torschuss',
       modifiers: {
         [ASSETS.IMMO]: 0.1,
         [ASSETS.SHARES]: 0.1,
