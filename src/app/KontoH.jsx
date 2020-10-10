@@ -10,7 +10,7 @@ const KontoH = ({ bank, assets }) => {
     assets,
   ]);
   const investRatio = Math.ceil(100 - bankWidth);
-  const barWidth = Math.min(totalWealth / max * 100, 100);
+  const barWidth = Math.min((totalWealth / max) * 100, 100);
   console.log('bank', bank);
   console.log('assets', assets);
   console.log('barWidth', barWidth);
@@ -26,7 +26,7 @@ const KontoH = ({ bank, assets }) => {
           <div className="konto-h__bank" style={{ width: `${bankWidth}%` }} />
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

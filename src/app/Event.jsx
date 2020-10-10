@@ -80,7 +80,7 @@ const Event = ({
       <Button
         className="event__next"
         timerKey={delayedEvent.title}
-        clickAfter={isFirst ? 0 : TIMEOUT}
+        clickAfter={isFirst || unexpected ? 0 : TIMEOUT}
         onClick={onConfirmEvent}
       >
         {delayedEvent.isFirst ? "Los geht's!" : 'Weiter'}
