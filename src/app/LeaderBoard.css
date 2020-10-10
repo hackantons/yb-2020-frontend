@@ -4,6 +4,10 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, .35);
   color: var(--c-bz-header);
 
+  &__cta {
+    margin: var(--gap-l) 0;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -22,9 +26,13 @@
     color: var(--c-bz-highlight);
   }
 
+  &__top5 {
+    margin-bottom: 0.8em;
+  }
+
   &__table {
     width: 100%;
-
+    border-top: 1px solid var(--c-grau);
 
     tr {
       td {
