@@ -1,26 +1,35 @@
 .app {
-    max-width: 500px;
-    height: calc( 100vh - 10px );
-    margin: 0 auto;
-    border-top: 10px solid var(--c-bekb-primary);
-    position: relative;
-    display: grid;
-    grid-template-rows: 75vh 25vh;
+  max-width: 500px;
+  height: 100vh;
+  margin: 0 auto;
+  border-top: 10px solid var(--c-bekb-primary);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__portfolio {
+    margin-top: auto;
+    margin-bottom: 4em;
+  }
 }
 
-.show-explanation.button {
+.explanation-button {
   position: absolute;
-    right: 3px;
-    border: none;
-    top: 19px;
+  right: 1.5rem;
+  border: none;
+  top: 2rem;
+  width: 1.5rem;
+  z-index: 9999;
 }
 
 img.explanation-icon {
   max-width: 100px;
-  margin: 0 auto;
+  margin: 15px auto 5px auto;
 }
 
 .explanation {
-  max-width: 400px;
+  max-width: 100%;
+  width: 400px;
   padding: 10px;
 }

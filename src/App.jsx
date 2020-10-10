@@ -88,7 +88,7 @@ const App = () => {
   return (
     <div className="app">
       {end ? (
-        <LeaderBoard value={total} />
+        <LeaderBoard className="app__event" value={total} />
       ) : (
         <React.Fragment>
           <Event
@@ -97,6 +97,7 @@ const App = () => {
             onConfirmEvent={onConfirmEvent}
             isFirst={currentEvent.isFirst}
             unexpected={unexpectedTitle !== null}
+            className="app__event"
           />
           <Portfolio
             locked={locked}
@@ -106,13 +107,21 @@ const App = () => {
             setBank={setBank}
             totalAssets={totalAssets}
             changeFromStep={changeFromStep}
+            className="app__portfolio"
           />
         </React.Fragment>
       )}
-
-      <Button className="show-explanation" onClick={() => setShadowBox(true)}>
-        <img className="explanation" src={`/assets/static/info.svg`} />
-      </Button>
+      {!end && (
+        <button
+          className="explanation-button"
+          onClick={() => setShadowBox(true)}
+        >
+          <img
+            className="explanation-button__img"
+            src={`/assets/static/info.svg`}
+          />
+        </button>
+      )}
 
       {shadowBox && (
         <ShadowBox close={() => setShadowBox(false)}>

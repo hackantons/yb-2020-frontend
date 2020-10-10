@@ -5,7 +5,14 @@ import { Button } from '../theme';
 
 const TIMEOUT = 0;
 
-const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
+const Event = ({
+  title,
+  description,
+  onConfirmEvent,
+  isFirst,
+  unexpected,
+  className = '',
+}) => {
   const [init, setInit] = React.useState(false);
   const [fade, setFade] = React.useState('none');
   const [delayedEvent, setDelayedEvent] = React.useState({
@@ -39,7 +46,7 @@ const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
   }, [title, description, isFirst]);
 
   return (
-    <div className="event" data-fade={fade}>
+    <div className={`event ${className}`} data-fade={fade}>
       <div className="event__newspaper">
         {delayedEvent.isFirst ? (
           <img
