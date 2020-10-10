@@ -25,9 +25,8 @@
 }
 
 .explanation-button {
-  opacity: 0;
   position: absolute;
-  right: 1.5rem;
+  right: 1.8rem;
   border: none;
   top: 2rem;
   width: 1.5rem;
