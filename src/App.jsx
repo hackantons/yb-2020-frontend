@@ -31,6 +31,8 @@ const App = () => {
     null
   );
 
+  const [changeFromStep, setChangeFromStep] = React.useState(false);
+
   const currentEvent = React.useMemo(
     () => ({ ...allEvents[step], isFirst: step === 0 }),
     [step]
@@ -71,7 +73,12 @@ const App = () => {
         setLocked(false);
       }
       setStep(step + 1);
+      setChangeFromStep(true);
       setPortfolio({ ...portfolio, ...modifiedAssets });
+      window.setTimeout(() => {
+        setChangeFromStep(false);
+      }, 10);
+
       if (allEvents.length - 1 === step) {
         setEnd(true);
       }
@@ -98,6 +105,7 @@ const App = () => {
             bank={bank}
             setBank={setBank}
             totalAssets={totalAssets}
+            changeFromStep={changeFromStep}
           />
         </React.Fragment>
       )}

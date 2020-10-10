@@ -2,9 +2,28 @@ import React from 'react';
 import ContUp from 'react-countup';
 import './Asset.css';
 
-const Asset = ({ assetKey, value, modifyAsset, totalAssets, locked }) => {
+const Asset = ({
+  assetKey,
+  value,
+  modifyAsset,
+  totalAssets,
+  locked,
+  changeFromStep,
+}) => {
   const [dragging, setDragging] = React.useState(false);
   const [startY, setStartY] = React.useState(0);
+  const [oldValue, setOldValue] = React.useState(value);
+  const [counterClass, setCounterClass] = React.useState('');
+
+  React.useEffect(() => {
+    if (changeFromStep) {
+      setCounterClass(value >= oldValue ? 'increase' : 'decrease');
+      window.setTimeout(() => {
+        setCounterClass('');
+      }, 200);
+    }
+    setOldValue(value);
+  }, [value]);
 
   const emptyHeight = React.useMemo(() => {
     const percentageOfTotalAssets = totalAssets ? value / totalAssets : 0;
@@ -64,7 +83,7 @@ const Asset = ({ assetKey, value, modifyAsset, totalAssets, locked }) => {
           />
         </div>
       </div>
-      <span className="asset__value">
+      <span className={`asset__value ${counterClass}`}>
         <ContUp
           end={Math.floor(value)}
           duration={1}

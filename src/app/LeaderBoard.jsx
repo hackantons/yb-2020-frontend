@@ -78,7 +78,7 @@ const LeaderBoard = ({ value }) => {
             )}
           </p>
           <h3 className="leaderboard__top5">Top 5</h3>
-          <table className="leaderboard__table" cellspacing="0">
+          <table className="leaderboard__table" cellSpacing="0">
             {leaderboard.slice(0, 5).map(({ name, score, you = false }, i) => (
               <tr>
                 <td>{i + 1}</td>
