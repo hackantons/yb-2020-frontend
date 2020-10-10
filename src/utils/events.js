@@ -18,7 +18,7 @@ export const EVENTS = [
       [ASSETS.COMMODITIES]: 1.2,
     },
     unexpectedOutcome: {
-      propability: 50,
+      propability: 10,
       title: 'YB Meister - fällt ins Wasser',
       description:
         'Basel gewinnt völlig überraschend in der Verlängerung mit einem 6:5 Torschuss',

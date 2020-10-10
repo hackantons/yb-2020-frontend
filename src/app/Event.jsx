@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './Event.css';
 
 import { Button } from '../theme';
@@ -28,7 +28,13 @@ const Event = ({ title, description, onConfirmEvent, isFirst, unexpected }) => {
       </div>
       <div className="event__text">
         <h2>
-          {unexpected && '!!!'} {title}
+          {unexpected ? (
+            <Fragment>
+              Breaking! <span className="h2__light">{title}</span>
+            </Fragment>
+          ) : (
+            title
+          )}
         </h2>
         <p>{description}</p>
       </div>

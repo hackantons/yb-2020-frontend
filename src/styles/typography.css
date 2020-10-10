@@ -34,6 +34,10 @@ h2 {
   line-height: 1.1;
 }
 
+h2 .h2__light {
+  font-weight: 200;
+}
+
 button {
   background-color: transparent;
   border: none;
