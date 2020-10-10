@@ -60,7 +60,10 @@ const LeaderBoard = ({ value, className = '' }) => {
         <React.Fragment>
           <p className="leaderboard__cta">
             <div className="leaderboard__rank">
-              Du hast mit <span className="total">{formattedValue.toLocaleString()} CHF</span>
+              Du hast mit{' '}
+              <span className="total">
+                {formattedValue.toLocaleString()} CHF
+              </span>
               <h2>Platz {myPosition}</h2> erreicht.{' '}
             </div>
             {myPosition >= 6 ? (
