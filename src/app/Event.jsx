@@ -2,8 +2,10 @@ import React, { Fragment } from 'react';
 import './Event.css';
 
 import { Button } from '../theme';
+import moment from 'moment';
 
 const TIMEOUT = 15;
+const DATEADDERINMONTHS = 2;
 
 const Event = ({
   title,
@@ -11,7 +13,7 @@ const Event = ({
   onConfirmEvent,
   isFirst,
   unexpected,
-  className = '',
+  className = ''
 }) => {
   const [init, setInit] = React.useState(false);
   const [fade, setFade] = React.useState('none');
@@ -21,6 +23,7 @@ const Event = ({
     isFirst,
     unexpected,
   });
+  const [dateCalculated, setDateCalculated] = React.useState(moment().add(-DATEADDERINMONTHS, 'months'))
 
   React.useEffect(() => {
     if (!init) {
@@ -46,6 +49,7 @@ const Event = ({
         unexpected,
       });
     }, 500);
+    setDateCalculated(dateCalculated.add(DATEADDERINMONTHS , 'months'))
   }, [title, description, isFirst, unexpected]);
 
   return (
@@ -65,7 +69,7 @@ const Event = ({
         {delayedEvent.isFirst ? (
           ''
         ) : (
-          <div className="event__newspaper__date">01. Januar 2020</div>
+        <div className="event__newspaper__date">{ dateCalculated.format("DD. MMM YYYY") }</div>
         )}
       </div>
       <div className="event__text">
