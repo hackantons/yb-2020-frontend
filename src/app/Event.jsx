@@ -4,7 +4,7 @@ import './Event.css';
 import { Button } from '../theme';
 import moment from 'moment';
 
-const TIMEOUT = 15;
+const TIMEOUT = 20;
 const DATEADDERINMONTHS = 2;
 
 const Event = ({

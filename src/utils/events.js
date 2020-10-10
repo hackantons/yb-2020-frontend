@@ -17,17 +17,6 @@ export const EVENTS = [
       [ASSETS.SHARES]: 1.2,
       [ASSETS.COMMODITIES]: 1.2,
     },
-    unexpectedOutcome: {
-      propability: 20,
-      title: 'YB Meister - fällt ins Wasser',
-      description:
-        'Basel gewinnt völlig überraschend in der Verlängerung mit einem 6:5 Torschuss',
-      modifiers: {
-        [ASSETS.IMMO]: 0.1,
-        [ASSETS.SHARES]: 0.1,
-        [ASSETS.COMMODITIES]: 0.1,
-      },
-    },
   },
   {
     title: 'Schnee-Rekord',
@@ -87,6 +76,17 @@ export const EVENTS = [
       [ASSETS.IMMO]: 0.95,
       [ASSETS.SHARES]: 0.5,
       [ASSETS.COMMODITIES]: 0.8,
+    },
+    unexpectedOutcome: {
+      propability: 100,
+      title: 'Impfung gegen COVID-20 gefunden',
+      description:
+        'Gegen jede Erwartung haben Forscher in Basel eine Impfung gegen das neuartige COVID-20 gefunden. Eine zweite Pandemie konnte damit abgewendet werden.',
+      modifiers: {
+        [ASSETS.IMMO]: 0.1,
+        [ASSETS.SHARES]: 0.1,
+        [ASSETS.COMMODITIES]: 0.1,
+      },
     },
   },
 ];

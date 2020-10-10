@@ -12,10 +12,6 @@ const KontoH = ({ bank, assets }) => {
   const investRatio = Math.ceil(100 - bankWidth);
   const barWidth = Math.min((totalWealth / max) * 100, 100);
 
-  console.log('bank', bank);
-  console.log('assets', assets);
-  console.log('barWidth', barWidth);
-
   return (
     <div className="portfolio__konto konto-h">
       <div className="konto-h__label">
