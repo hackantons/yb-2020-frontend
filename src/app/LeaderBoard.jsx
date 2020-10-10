@@ -115,6 +115,7 @@ const LeaderBoard = ({ value, className = '' }) => {
             onInput={e => setName(e.target.value)}
           />
           <Button
+            className="score-button"
             onClick={() => {
               if (name === '') {
                 alert('Bitte gib einen Namen ein');
