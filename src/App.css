@@ -24,9 +24,7 @@
   }
 
   &__portfolio {
-    padding: var(--gap-l) var(--gap-m);
-    //margin-top: auto;
-    //margin-bottom: 4em;
+    padding: var(--gap-m) var(--gap-l);
   }
 }
 
