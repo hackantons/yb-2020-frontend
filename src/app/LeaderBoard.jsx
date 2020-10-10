@@ -13,6 +13,13 @@ const LeaderBoard = ({ value }) => {
     <div>
       <img className="logo" src={`/assets/static/logo.svg`} alt="bekb logo" />
       <p>
+        Du hast: {value}$, das hätte besser sein können aber{' '}
+        <a target="_blank" href="https://www.bekb.ch/services/beratung">
+          die BEKB ist immer da für dich
+        </a>
+      </p>
+      <br />
+      <p>
         {leaders
           .sort(function(a, b) {
             return a.score > b.score;
