@@ -26,6 +26,12 @@ const KontoH = ({ bank, assets }) => {
           <div className="konto-h__bank" style={{ width: `${bankWidth}%` }} />
         </div>
       </div>
+      <div className="konto-h__skala">
+        <span>0</span>
+        <span>1k</span>
+        <span>2k</span>
+        <span>3k</span>
+      </div>
     </div >
   );
 };

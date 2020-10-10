@@ -1,6 +1,9 @@
 .portfolio {
-  margin-left: var(--gap-m);
-  margin-right: var(--gap-m);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  margin: auto var(--gap-m) var(--gap-m) var(--gap-m);
   
   &__assets {
     display: flex;
