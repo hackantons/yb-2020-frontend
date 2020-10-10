@@ -1,0 +1,29 @@
+p.leaders {
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 6px;
+  padding-top: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+}
+
+span.leader-position {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #cc0033;
+  display: inline-block;
+  margin-right: 9px;
+}
+
+span.leader-name {display: inline-block;width: 130px;}
+
+span.leader-score {
+  width: 60px;
+}
+.logo {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
