@@ -20,7 +20,7 @@ window.addEventListener('resize', () => {
  */
 
 window.serviceWorkerEvent = false;
-if ('serviceWorker' in navigator && !isDev) {
+if ('serviceWorker' in navigator && !IS_DEV) {
   //if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register('/service-worker.js')
