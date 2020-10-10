@@ -4,9 +4,11 @@ import fs from 'fs';
 require('dotenv').config();
 
 const app = {
-  title: 'BEKB Asset Game',
-  short: 'BEKB Invest Game',
+  title: 'BEKB Investment Simulator',
+  short: 'BEKB Invest',
   description: 'A Webapp for the BEKB',
+  colorbkg: '#cc0033',
+  color: '#cc0033',
 };
 
 class TailwindExtractor {
@@ -19,7 +21,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { GenerateSW } from 'workbox-webpack-plugin';
+import workboxPlugin from 'workbox-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 
 import TerserJSPlugin from 'terser-webpack-plugin';
@@ -93,46 +95,33 @@ module.exports = (env, argv) => {
               useShortDoctype: true,
             },
       }),
-      new WebpackPwaManifest({
-        name: app.title,
-        short_name: app.short,
-        description: app.description,
-        theme_color: app.color,
-        background_color: app.colorbkg,
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
-        fingerprints: false,
-        icons: [
-          {
-            src: path.resolve(`${dirSrc}/assets/bekb-logo.png`),
-            sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icon'),
-            ios: true,
-          },
-        ],
-      }),
-      new GenerateSW({
-        importWorkboxFrom: 'local',
-        include: [/\.html$/, /\.js$/, /\.css$/],
-        importsDirectory: 'wb-assets',
-        runtimeCaching: [
-          {
-            urlPattern: new RegExp(/\.(?:png|gif|jpg|svg|ico)$/),
-            handler: 'cacheFirst',
-            options: {
-              cacheName: 'image-cache',
-            },
-          },
-          {
-            urlPattern: new RegExp(/\.html$/),
-            handler: 'networkFirst',
-            options: {
-              cacheName: 'index-cache',
-            },
-          },
-        ],
-        navigateFallback: 'index.html',
-        skipWaiting: true,
-      }),
+      ...(!dev || process.env.GENERATE_SW === 'true' // only generate manifest and SW in prod build
+        ? [
+            new WebpackPwaManifest({
+              name: app.title,
+              short_name: app.short,
+              description: app.description,
+              theme_color: app.color,
+              background_color: app.colorbkg,
+              crossorigin: 'use-credentials',
+              fingerprints: false,
+              icons: [
+                {
+                  src: path.resolve(`${dirSrc}/assets/bekb-logo.png`),
+                  sizes: [96, 128, 192, 256, 384, 512],
+                  destination: path.join('assets', 'pwa-icon'),
+                  ios: true,
+                  purpose: 'maskable',
+                },
+              ],
+            }),
+            new workboxPlugin.InjectManifest({
+              swSrc: './src/service-worker.js',
+              include: [/\.html$/, /\.js$/, /\.css$/],
+              maximumFileSizeToCacheInBytes: 5000000,
+            }),
+          ]
+        : []),
     ],
     module: {
       rules: [

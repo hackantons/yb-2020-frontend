@@ -69,18 +69,25 @@ const LeaderBoard = ({ value, className = '' }) => {
             {myPosition >= 6 ? (
               <React.Fragment>
                 Da ist wohl noch etwas Verbesserungsbedarf. <br />
-                Mit echtem Geld braucht es mehr Wissen und dabei helfen unsere Profis dir gerne:{' '}
-                
-                <a class="leaderboard__advice" target="_blank" href="https://www.bekb.ch/services/beratung">
-                Beratung BEKB
-                </a> 
-
+                Mit echtem Geld braucht es mehr Wissen und dabei helfen unsere
+                Profis dir gerne:{' '}
+                <a
+                  class="leaderboard__advice"
+                  target="_blank"
+                  href="https://www.bekb.ch/services/beratung"
+                >
+                  Beratung BEKB
+                </a>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 WOW! Das ist beeindruckend. <br />
                 Wenn du dich mal mit unseren Profis unterhalten möchtest,{' '}
-                <a class="leaderboard__advice" target="_blank" href="https://www.bekb.ch/services/beratung">
+                <a
+                  class="leaderboard__advice"
+                  target="_blank"
+                  href="https://www.bekb.ch/services/beratung"
+                >
                   melde dich bei uns.
                 </a>
               </React.Fragment>
