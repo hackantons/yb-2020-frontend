@@ -33,6 +33,7 @@
 
   &__logo {
     max-width: 50%;
+    width: 200px;
   }
 
   &__title {
