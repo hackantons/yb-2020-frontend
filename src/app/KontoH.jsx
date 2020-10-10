@@ -15,8 +15,8 @@ const KontoH = ({ bank, assets }) => {
   return (
     <div className="portfolio__konto konto-h">
       <div className="konto-h__label">
-        <h3>Dein Vermögen {totalWealth.toLocaleString()} CHF</h3>
-        <span>({investRatio}% investiert)</span>
+        <h3 className="test">Dein Vermögen CHF {totalWealth.toLocaleString('de-CH')}.-</h3>
+        <span>{' '}{investRatio}% investiert</span>
       </div>
       <div className="konto-h__bar">
         <div className="konto-h__total" style={{ width: `${barWidth}%` }}>

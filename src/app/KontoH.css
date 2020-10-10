@@ -30,7 +30,7 @@
     color: var(--c-bz-text);
     span {
       &::before {
-        content: "";
+        content: '';
         display: block;
         height: 8px;
         width: 3px;
