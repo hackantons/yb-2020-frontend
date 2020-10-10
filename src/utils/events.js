@@ -3,7 +3,7 @@ import { ASSETS } from '@utils/constants';
 export const INIT_EVENT = {
   title: 'Super-Duper-Trader',
   description:
-    'Passe dein Portfolio geschickt auf reale Ereignisse an und.\n\nSwipe jetzt auf den Icons um dein Startvermögen auf Immobilien, Aktien und Güter zu verteilen.',
+    'Passe dein Portfolio geschickt auf reale Ereignisse an.\n\nSwipe jetzt auf den Icons um dein Startvermögen auf Immobilien, Aktien und Güter zu verteilen.',
   modifiers: {},
 };
 
@@ -18,7 +18,7 @@ export const EVENTS = [
       [ASSETS.COMMODITIES]: 1.2,
     },
     unexpectedOutcome: {
-      propability: 100,
+      propability: 20,
       title: 'YB Meister - fällt ins Wasser',
       description:
         'Basel gewinnt völlig überraschend in der Verlängerung mit einem 6:5 Torschuss',
