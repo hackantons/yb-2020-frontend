@@ -40,6 +40,7 @@ img.explanation-icon {
 
 .explanation {
   max-width: 100%;
+  margin-top: -40px;
   width: 400px;
   padding: 10px;
 }
