@@ -18,9 +18,9 @@ const Asset = ({
   React.useEffect(() => {
     if (changeFromStep) {
       setCounterClass(value >= oldValue ? 'increase' : 'decrease');
-      window.setTimeout(() => {
-        setCounterClass('');
-      }, 200);
+      // window.setTimeout(() => {
+      //   setCounterClass('');
+      // }, 200);
     }
     setOldValue(value);
   }, [value]);
