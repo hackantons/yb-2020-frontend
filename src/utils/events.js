@@ -3,7 +3,7 @@ import { ASSETS } from '@utils/constants';
 export const INIT_EVENT = {
   title: 'Super-Duper-Trader',
   description:
-    'Das ist das supercoole BEKB Spiel, bei dem deine Assets geschickt verwalten musst um bis zur Pensionierung stink reich zu sein.\n\nPasse dazu dein Portfolio geschickt auf reale Ereignisse an.\n\nSwipe jetzt auf den Icons um dein Startvermögen von 100k auf Immobilien, Aktien und Güter zu verteilen.',
+    'Passe dein Portfolio geschickt auf reale Ereignisse an und.\n\nSwipe jetzt auf den Icons um dein Startvermögen auf Immobilien, Aktien und Güter zu verteilen.',
   modifiers: {},
 };
 
