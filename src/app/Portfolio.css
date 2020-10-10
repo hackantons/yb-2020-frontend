@@ -1,11 +1,12 @@
 .portfolio {
   align-self: end;
-  margin-top: var(--gap-l);
-  margin-bottom: var(--gap-l);
+  //margin-top: var(--gap-l);
+  margin-bottom: calc(var(--gap-l) * 2);
 
   &__assets {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: var(--gap-l);
   }
 }

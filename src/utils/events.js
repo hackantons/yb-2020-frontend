@@ -16,6 +16,16 @@ export const EVENTS = [
       [ASSETS.SHARES]: 1.2,
       [ASSETS.COMMODITIES]: 1.2,
     },
+    unexpectedOutcome: {
+      propability: 1,
+      title: 'YB Meister - fällt ins Wasser',
+      description: 'Desc',
+      modifiers: {
+        [ASSETS.IMMO]: 0.1,
+        [ASSETS.SHARES]: 0.1,
+        [ASSETS.COMMODITIES]: 0.1,
+      },
+    },
   },
   {
     title: 'Schnee-Rekord',
