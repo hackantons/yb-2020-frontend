@@ -20,8 +20,8 @@ const App = () => {
   const [bank, setBank] = useState(1000);
   const [portfolio, setPortfolio] = useState({
     [ASSETS.IMMO]: 0,
-    [ASSETS.SHARES]: 100,
-    [ASSETS.COMMODITIES]: 1000,
+    [ASSETS.SHARES]: 0,
+    [ASSETS.COMMODITIES]: 0,
   });
 
   const [unexpectedTitle, setUnexpectedTitle] = React.useState(null);
