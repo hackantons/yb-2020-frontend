@@ -3,7 +3,7 @@ import './Event.css';
 
 import { Button } from '../theme';
 
-const TIMEOUT = 0;
+const TIMEOUT = 15;
 
 const Event = ({
   title,
