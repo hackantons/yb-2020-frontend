@@ -47,7 +47,16 @@
 .event__text {
   overflow-y: auto;
 }
+.event__unexpected__tag {
+  display: inline-block;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 var(--gap-s);
+  margin-right: var(--gap-m);
+  background-color: var(--c-bz-highlight);
 
+}
 .event h2 {
   font-family: 'Source Serif Pro', serif;
   margin-bottom: var(--gap-l);

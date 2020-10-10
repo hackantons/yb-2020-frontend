@@ -54,26 +54,25 @@ const Event = ({
             src={`/assets/static/logo.svg`}
           />
         ) : (
-          <img
-            className="event__newspaper__logo"
-            src={`/assets/static/bernerzeitung.svg`}
-          />
-        )}
+            <img
+              className="event__newspaper__logo"
+              src={`/assets/static/bernerzeitung.svg`}
+            />
+          )}
         {delayedEvent.isFirst ? (
           ''
         ) : (
-          <div className="event__newspaper__date">01. Januar 2020</div>
-        )}
+            <div className="event__newspaper__date">01. Januar 2020</div>
+          )}
       </div>
       <div className="event__text">
-        <h2>
-          {unexpected ? (
+          {unexpected ? 
             <Fragment>
-              Breaking! <span className="h2__light">{delayedEvent.title}</span>
+              <div className="event__unexpected__tag">Eilmeldung</div>
             </Fragment>
-          ) : (
-            delayedEvent.title
-          )}
+          : '' }
+        <h2>
+          {delayedEvent.title}
         </h2>
         <p>{delayedEvent.description}</p>
       </div>
