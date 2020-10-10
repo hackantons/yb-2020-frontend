@@ -4,8 +4,8 @@ import fs from 'fs';
 require('dotenv').config();
 
 const app = {
-  title: 'BEKB Asset Game',
-  short: 'BEKB Invest Game',
+  title: 'BEKB Investment Simulator',
+  short: 'BEKB Invest',
   description: 'A Webapp for the BEKB',
 };
 

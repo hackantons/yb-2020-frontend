@@ -1,7 +1,7 @@
 import { ASSETS } from '@utils/constants';
 
 export const INIT_EVENT = {
-  title: 'Super-Duper-Trader',
+  title: 'BEKB Investment Simulator',
   description:
     'Passe dein Portfolio geschickt auf reale Ereignisse an.\n\nSwipe jetzt auf den Icons um dein Startvermögen auf Immobilien, Aktien und Güter zu verteilen.',
   modifiers: {},
