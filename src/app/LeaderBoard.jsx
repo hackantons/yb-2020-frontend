@@ -4,6 +4,7 @@ import { getLeaderboard } from '../utils/api';
 import { ShadowBox, Button } from '../theme';
 
 import './LeaderBoard.css';
+import axios from 'axios';
 
 const LeaderBoard = ({ value, className = '' }) => {
   const formattedValue = React.useMemo(() => Math.round(value), [value]);
@@ -87,22 +88,26 @@ const LeaderBoard = ({ value, className = '' }) => {
               </tr>
             ))}
           </table>
-          <Button onClick={() => setShadowBox(true)}>
-            Spielstand speichern
-          </Button>
-          <Button
-            onClick={() => {
-              window.location.reload(true);
-            }}
-          >
-            Spiel neu starten
-          </Button>
+          <div className="leader-board-buttons">
+            <Button onClick={() => setShadowBox(true)}>
+              Spielstand speichern
+            </Button>
+            <Button
+              onClick={() => {
+                window.location.reload(true);
+              }}
+            >
+              Spiel neu starten
+            </Button>
+          </div>
         </React.Fragment>
       )}
       {shadowBox && (
         <ShadowBox close={() => setShadowBox(false)}>
-          <p>Spielstand: {formattedValue}.-</p>
-          <label for="name">name</label>
+          <p className="popup-score">Spielstand: {formattedValue}.-</p>
+          <label className="popup-label" for="name">
+            Name:
+          </label>
           <input
             id="name"
             name="name"
@@ -114,7 +119,11 @@ const LeaderBoard = ({ value, className = '' }) => {
               if (name === '') {
                 alert('Bitte gib einen Namen ein');
               } else {
-                console.log('SEND THIS', name, formattedValue);
+                axios.post('https://backend.bekb.dev/leaderboard', {
+                  name: name,
+                  score: formattedValue,
+                });
+                setShadowBox(false);
               }
             }}
           >

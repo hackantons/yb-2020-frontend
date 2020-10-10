@@ -6,9 +6,30 @@
 
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &__portfolio {
     margin-top: auto;
     margin-bottom: 4em;
   }
+}
+
+.explanation-button {
+  position: absolute;
+  right: 1.5rem;
+  border: none;
+  top: 2rem;
+  width: 1.5rem;
+  z-index: 9999;
+}
+
+img.explanation-icon {
+  max-width: 100px;
+  margin: 15px auto 5px auto;
+}
+
+.explanation {
+  max-width: 100%;
+  width: 400px;
+  padding: 10px;
 }

@@ -58,6 +58,8 @@
     padding: 1em;
     text-align: right;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.6);
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
   &__content {

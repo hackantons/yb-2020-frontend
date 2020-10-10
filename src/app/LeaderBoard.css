@@ -56,3 +56,28 @@
     font-weight: bold;
   }
 }
+
+.leader-board-buttons {
+  display: flex;
+  justify-content: space-between;
+  & button {
+    border:none;
+  }
+}
+
+.leaderboard {
+  min-height: 440px;
+}
+
+.shadowbox__content button {
+  border:none;
+}
+
+.popup-score {
+  position: absolute;
+  top: 18px;
+}
+
+.popup-label {
+  margin-right: 10px;
+}
