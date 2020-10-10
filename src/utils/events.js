@@ -19,7 +19,8 @@ export const EVENTS = [
   },
   {
     title: 'Schnee-Rekord',
-    description: 'Desc',
+    description:
+      'Schnee Rekord in Bern! \n Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
     modifiers: {
       [ASSETS.IMMO]: 0.8,
       [ASSETS.SHARES]: 1.05,
@@ -28,7 +29,8 @@ export const EVENTS = [
   },
   {
     title: 'Bilateral Gefährdet',
-    description: 'Desc',
+    description:
+      'Durch die neue SVP Abstimmung "Gotthard für Ausländer schliessen" sind die Bilateralen aufs neue gefährdet. Die EU zieht in Erwägung ein Embargo zu verkünden.',
     modifiers: {
       [ASSETS.IMMO]: 1.1,
       [ASSETS.SHARES]: 0.7,
@@ -37,7 +39,8 @@ export const EVENTS = [
   },
   {
     title: 'Bürgerkrieg im Kongo',
-    description: 'Desc',
+    description:
+      'Im Kongo ist Bürgerkrieg ausgebrochen, dies verzögert auch die Auslieferung der neuen Macbooks welche diverse Rohmateralien aus dem Kongo benötigen.',
     modifiers: {
       [ASSETS.IMMO]: 1,
       [ASSETS.SHARES]: 0.95,
@@ -46,7 +49,8 @@ export const EVENTS = [
   },
   {
     title: 'Goldparität aufgehoben',
-    description: 'Desc',
+    description:
+      'Die SNB hebt die Goldparität auf! \n Der internationale Goldmarkt erbebt! Wird dies einen Einfluss haben?',
     modifiers: {
       [ASSETS.IMMO]: 1.02,
       [ASSETS.SHARES]: 1,
@@ -55,7 +59,8 @@ export const EVENTS = [
   },
   {
     title: 'Forscher entdecken künstliches Metall',
-    description: 'Desc',
+    description:
+      'Der Stein der Weisen wurde gefunden!\nMit dieser Schlagzeile verkündet das CERN die neue Entdeckung einer Möglichkeit Blei in Gold und andere Metalle umzuwandeln.',
     modifiers: {
       [ASSETS.IMMO]: 0.95,
       [ASSETS.SHARES]: 1,
@@ -64,7 +69,8 @@ export const EVENTS = [
   },
   {
     title: 'Globale Covid-20 Pandemie',
-    description: 'Desc',
+    description:
+      'Die Weiterentwicklung des Covid-19 betrifft uns alle; mit diesen Worten verkündet das WHO Covid-20, die neue Pandemie für das neue Jahr.',
     modifiers: {
       [ASSETS.IMMO]: 0.95,
       [ASSETS.SHARES]: 0.5,
