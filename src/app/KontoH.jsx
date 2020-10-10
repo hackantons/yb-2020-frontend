@@ -29,9 +29,9 @@ const KontoH = ({ bank, assets }) => {
       </div>
       <div className="konto-h__skala">
         <span>0</span>
-        <span>1m</span>
-        <span>2m</span>
-        <span>3m</span>
+        <span>1'000</span>
+        <span>2'000</span>
+        <span>3'000</span>
       </div>
     </div>
   );
