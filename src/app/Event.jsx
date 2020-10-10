@@ -19,6 +19,7 @@ const Event = ({
     title,
     description,
     isFirst,
+    unexpected,
   });
 
   React.useEffect(() => {
@@ -27,6 +28,7 @@ const Event = ({
         title,
         description,
         isFirst,
+        unexpected,
       });
       setInit(true);
       return;
@@ -41,9 +43,10 @@ const Event = ({
         title,
         description,
         isFirst,
+        unexpected,
       });
     }, 500);
-  }, [title, description, isFirst]);
+  }, [title, description, isFirst, unexpected]);
 
   return (
     <div className={`event ${className}`} data-fade={fade}>
@@ -66,7 +69,7 @@ const Event = ({
           )}
       </div>
       <div className="event__text">
-          {unexpected ? 
+          {delayedEvent.unexpected ? 
             <Fragment>
               <div className="event__unexpected__tag">Eilmeldung</div>
             </Fragment>
