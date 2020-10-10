@@ -11,14 +11,15 @@ const KontoH = ({ bank, assets }) => {
   ]);
   const investRatio = Math.ceil(100 - bankWidth);
   const barWidth = Math.min((totalWealth / max) * 100, 100);
+
   console.log('bank', bank);
   console.log('assets', assets);
   console.log('barWidth', barWidth);
 
   return (
-    <div className="konto-h">
+    <div className="portfolio__konto konto-h">
       <div className="konto-h__label">
-        <h3>Dein Vermögen {totalWealth}.-</h3>
+        <h3>Dein Vermögen {totalWealth.toLocaleString()} CHF</h3>
         <span>({investRatio}% investiert)</span>
       </div>
       <div className="konto-h__bar">
@@ -28,9 +29,9 @@ const KontoH = ({ bank, assets }) => {
       </div>
       <div className="konto-h__skala">
         <span>0</span>
-        <span>1k</span>
-        <span>2k</span>
-        <span>3k</span>
+        <span>1m</span>
+        <span>2m</span>
+        <span>3m</span>
       </div>
     </div>
   );

@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--gap-l);
+    padding: var(--gap-m) var(--gap-m);
+  }
+
+  &__konto {
+    padding: var(--gap-m) var(--gap-l);
   }
 }

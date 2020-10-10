@@ -22,10 +22,6 @@
     flex: 1 1 auto;
     padding: var(--gap-l);
   }
-
-  &__portfolio {
-    padding: var(--gap-m) var(--gap-l);
-  }
 }
 
 .explanation-button {
