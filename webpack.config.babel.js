@@ -4,9 +4,9 @@ import fs from 'fs';
 require('dotenv').config();
 
 const app = {
-  title: 'Investy McInvestface',
+  title: 'BEKB Asset Game',
   short: 'BEKB Invest Game',
-  description: 'A ToDo List as a Progressive Web App',
+  description: 'A Webapp for the BEKB',
 };
 
 class TailwindExtractor {
@@ -19,8 +19,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { GenerateSW } from 'workbox-webpack-plugin';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
 
-import PurgecssPlugin from 'purgecss-webpack-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import glob from 'glob-all';
@@ -69,19 +70,6 @@ module.exports = (env, argv) => {
           ? 'assets/[name].[id].css'
           : 'assets/[name].[id].[hash].css',
       }),
-      ...(dev
-        ? []
-        : [
-            new PurgecssPlugin({
-              paths: glob.sync([`${dirSrc}/**/*.jsx`, `${dirSrc}/index.html`]),
-              extractors: [
-                {
-                  extractor: TailwindExtractor,
-                  extensions: ['html', 'js', 'jsx'],
-                },
-              ],
-            }),
-          ]),
       new CopyWebpackPlugin([
         {
           from: 'src/assets/static',
@@ -104,6 +92,46 @@ module.exports = (env, argv) => {
               removeStyleLinkTypeAttributes: true,
               useShortDoctype: true,
             },
+      }),
+      new WebpackPwaManifest({
+        name: app.title,
+        short_name: app.short,
+        description: app.description,
+        theme_color: app.color,
+        background_color: app.colorbkg,
+        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        fingerprints: false,
+        icons: [
+          {
+            src: path.resolve(`${dirSrc}/assets/bekb-logo.png`),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icon'),
+            ios: true,
+          },
+        ],
+      }),
+      new GenerateSW({
+        importWorkboxFrom: 'local',
+        include: [/\.html$/, /\.js$/, /\.css$/],
+        importsDirectory: 'wb-assets',
+        runtimeCaching: [
+          {
+            urlPattern: new RegExp(/\.(?:png|gif|jpg|svg|ico)$/),
+            handler: 'cacheFirst',
+            options: {
+              cacheName: 'image-cache',
+            },
+          },
+          {
+            urlPattern: new RegExp(/\.html$/),
+            handler: 'networkFirst',
+            options: {
+              cacheName: 'index-cache',
+            },
+          },
+        ],
+        navigateFallback: 'index.html',
+        skipWaiting: true,
       }),
     ],
     module: {
