@@ -3,6 +3,9 @@ import React from 'react';
 import './Portfolio.css';
 import Asset from '@app/Asset';
 import Konto from '@app/Konto';
+import KontoH from '@app/KontoH';
+
+const USE_H_KONTO = true;
 
 const Portfolio = ({
   locked = false,
@@ -26,7 +29,7 @@ const Portfolio = ({
   return (
     <div className="portfolio">
       <div className="portfolio__assets">
-        <Konto bank={bank} assets={totalAssets} />
+        {!USE_H_KONTO && <Konto bank={bank} assets={totalAssets} />}
         {Object.entries(portfolio).map(([key, value]) => (
           <Asset
             key={key}
@@ -37,6 +40,7 @@ const Portfolio = ({
           />
         ))}
       </div>
+      {USE_H_KONTO && <KontoH bank={bank} assets={totalAssets} />}
     </div>
   );
 };
