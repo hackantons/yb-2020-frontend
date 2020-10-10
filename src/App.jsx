@@ -110,9 +110,11 @@ const App = () => {
         </React.Fragment>
       )}
 
-      <Button className="show-explanation" onClick={() => setShadowBox(true)}>
-        <img className="explanation" src={`/assets/static/info.svg`} />
-      </Button>
+      {!end && (
+        <Button className="show-explanation" onClick={() => setShadowBox(true)}>
+          <img className="explanation" src={`/assets/static/info.svg`} />
+        </Button>
+      )}
 
       {shadowBox && (
         <ShadowBox close={() => setShadowBox(false)}>
