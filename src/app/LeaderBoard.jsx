@@ -4,6 +4,7 @@ import { getLeaderboard } from '../utils/api';
 import { ShadowBox, Button } from '../theme';
 
 import './LeaderBoard.css';
+import axios from 'axios';
 
 const LeaderBoard = ({ value }) => {
   const formattedValue = React.useMemo(() => Math.round(value), [value]);
@@ -118,7 +119,11 @@ const LeaderBoard = ({ value }) => {
               if (name === '') {
                 alert('Bitte gib einen Namen ein');
               } else {
-                console.log('SEND THIS', name, formattedValue);
+                axios.post('https://backend.bekb.dev/leaderboard', {
+                  name: name,
+                  score: formattedValue,
+                });
+                setShadowBox(false);
               }
             }}
           >
