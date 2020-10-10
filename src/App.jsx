@@ -151,6 +151,13 @@ const App = () => {
               Dieses Icon stellt die Rohstoffe in deinem Portfolio dar, die
               Rohstoffe sind als Anlage stabiler, aber bringen weniger Gewinn
             </p>
+            <br />
+            <p>
+              Mit all diesen Icons lässt sich per rauf und runter "swipen"
+              interagieren
+            </p>
+            <br />
+
             <img
               class="asset__image--filled explanation-bar"
               src="/assets/static/bar.png"

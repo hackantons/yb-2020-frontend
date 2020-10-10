@@ -1,7 +1,7 @@
 .leaderboard {
   padding-bottom: var(--gap-l);
   margin: var(--gap-l) var(--gap-m);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .35);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
   color: var(--c-bz-header);
 
   &__cta {
@@ -70,13 +70,17 @@
   &__leader-you {
     font-weight: bold;
   }
+
+  &__advice {
+    text-decoration: none;
+  }
 }
 
 .leader-board-buttons {
   display: flex;
   justify-content: space-between;
   & button {
-    border:none;
+    border: none;
   }
 }
 
@@ -85,7 +89,7 @@
 }
 
 .shadowbox__content button {
-  border:none;
+  border: none;
 }
 
 .popup-score {

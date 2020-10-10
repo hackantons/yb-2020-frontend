@@ -88,7 +88,7 @@ const Asset = ({
           end={Math.floor(value)}
           duration={1}
           preserveValue
-          suffix=".-"
+          suffix=".‒"
         />
       </span>
     </div>
