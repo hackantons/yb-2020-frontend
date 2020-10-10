@@ -15,6 +15,7 @@ const Portfolio = ({
   setBank,
   totalAssets,
   changeFromStep,
+  className = '',
 }) => {
   const modifyAsset = (key, value) => {
     let newPortfolioValue = portfolio[key] + value;
@@ -28,7 +29,7 @@ const Portfolio = ({
   };
 
   return (
-    <div className="portfolio">
+    <div className={`portfolio ${className}`}>
       <div className="portfolio__assets">
         {!USE_H_KONTO && <Konto bank={bank} assets={totalAssets} />}
         {Object.entries(portfolio).map(([key, value]) => (

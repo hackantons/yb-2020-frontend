@@ -86,7 +86,7 @@ const App = () => {
   return (
     <div className="app">
       {end ? (
-        <LeaderBoard value={total} />
+        <LeaderBoard className="app__event" value={total} />
       ) : (
         <React.Fragment>
           <Event
@@ -95,6 +95,7 @@ const App = () => {
             onConfirmEvent={onConfirmEvent}
             isFirst={currentEvent.isFirst}
             unexpected={unexpectedTitle !== null}
+            className="app__event"
           />
           <Portfolio
             locked={locked}
@@ -104,6 +105,7 @@ const App = () => {
             setBank={setBank}
             totalAssets={totalAssets}
             changeFromStep={changeFromStep}
+            className="app__portfolio"
           />
         </React.Fragment>
       )}

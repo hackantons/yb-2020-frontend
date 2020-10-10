@@ -5,7 +5,7 @@ import { ShadowBox, Button } from '../theme';
 
 import './LeaderBoard.css';
 
-const LeaderBoard = ({ value }) => {
+const LeaderBoard = ({ value, className = '' }) => {
   const formattedValue = React.useMemo(() => Math.round(value), [value]);
   const [leaders, setLeaders] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
@@ -44,7 +44,7 @@ const LeaderBoard = ({ value }) => {
   );
 
   return (
-    <div className="leaderboard">
+    <div className={`${className} leaderboard`}>
       <div className="leaderboard__header">
         <img
           className="leaderboard__logo"
