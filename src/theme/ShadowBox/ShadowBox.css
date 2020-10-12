@@ -73,7 +73,31 @@
     left: 0;
     top: 0;
     background-color: #000;
-    opacity: 0.7;
+    opacity: 0;
     cursor: pointer;
+  }
+
+  /* animation */
+  &__box {
+    transform: translateX(-50%) translateY(-30%) scale(1);
+  }
+
+  &__box, &__shadow {
+    opacity: 0;
+    will-change: opacity;
+    transition: all 200ms ease-in-out;
+  }
+
+  &[data-visible="true"] {
+    .shadowbox {
+      &__box {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+      }
+
+      &__shadow {
+        opacity: 0.7;
+      }
+    }
   }
 }

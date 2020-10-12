@@ -6,24 +6,40 @@ const Portal = ({ children }: { children?: React.ReactNode }) => {
   return ReactDOM.createPortal(children, document.querySelector('#shadowbox'));
 };
 
-// todo: fly-in, fly-out
-
 export default ({
   children,
   close,
 }: {
   children?: React.ReactNode | React.ReactNode[];
   close: React.MouseEvent<HTMLElement>;
-}) => (
-  <Portal>
-    <div className="shadowbox">
-      <div className="shadowbox__shadow" onClick={close} />
-      <div className="shadowbox__box">
-        <button className="shadowbox__close" onClick={close}>
-          Close
-        </button>
-        <div className="shadowbox__content">{children}</div>
+}) => {
+  const [show, setShow] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setShow(true);
+    return () => {
+      setShow(false);
+    };
+  }, []);
+
+  const onClose = () => {
+    setShow(false);
+    window.setTimeout(() => {
+      close();
+    }, 200);
+  };
+
+  return (
+    <Portal>
+      <div className="shadowbox" data-visible={show}>
+        <div className="shadowbox__shadow" onClick={onClose} />
+        <div className="shadowbox__box">
+          <button className="shadowbox__close" onClick={onClose}>
+            Close
+          </button>
+          <div className="shadowbox__content">{children}</div>
+        </div>
       </div>
-    </div>
-  </Portal>
-);
+    </Portal>
+  );
+};
