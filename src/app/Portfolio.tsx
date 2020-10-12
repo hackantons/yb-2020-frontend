@@ -3,9 +3,7 @@ import React from 'react';
 import './Portfolio.css';
 import Asset from '@app/Asset';
 import Konto from '@app/Konto';
-import KontoH from '@app/KontoH';
-
-const USE_H_KONTO = true;
+import { PortfolioD } from '../@types/Assets';
 
 const Portfolio = ({
   locked = false,
@@ -16,6 +14,15 @@ const Portfolio = ({
   totalAssets,
   changeFromStep,
   className = '',
+}: {
+  locked: boolean;
+  portfolio: PortfolioD;
+  setPortfolio: Function;
+  bank: number;
+  setBank: Function;
+  totalAssets: number;
+  changeFromStep: boolean;
+  className?: string;
 }) => {
   const modifyAsset = (key, value) => {
     let newPortfolioValue = portfolio[key] + value;
@@ -31,7 +38,6 @@ const Portfolio = ({
   return (
     <div className={`portfolio ${className}`}>
       <div className="portfolio__assets">
-        {!USE_H_KONTO && <Konto bank={bank} assets={totalAssets} />}
         {Object.entries(portfolio).map(([key, value]) => (
           <Asset
             locked={locked}
@@ -44,7 +50,7 @@ const Portfolio = ({
           />
         ))}
       </div>
-      {USE_H_KONTO && <KontoH bank={bank} assets={totalAssets} />}
+      <Konto bank={bank} assets={totalAssets} />
     </div>
   );
 };

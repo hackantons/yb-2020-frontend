@@ -1,4 +1,4 @@
-import { ASSETS } from '@utils/constants';
+import { EventD } from '../@types/Event';
 
 export const INIT_EVENT = {
   title: 'BEKB Investment Simulator',
@@ -7,27 +7,60 @@ export const INIT_EVENT = {
   modifiers: {},
 };
 
-export const EVENTS = [
+export const EVENTS: EventD[] = [
   {
     title: 'YB Meister',
     description:
       'Wird YB es nochmals schaffen? YB muss sich nur noch im Spiel gegen Basel beweisen und dann haben sie den Titel!',
-    modifiers: {
-      [ASSETS.IMMO]: 1.4,
-      [ASSETS.SHARES]: 1.2,
-      [ASSETS.COMMODITIES]: 1.2,
+    resolution: {
+      description: 'ist doch klar, oder?',
+      modifiers: {
+        'real-estate': {
+          reason: 'X',
+          multiplier: 1.4,
+        },
+        shares: {
+          reason: 'X',
+          multiplier: 1.2,
+        },
+        commodities: {
+          reason: 'X',
+          multiplier: 1.2,
+        },
+      },
+    },
+    alterative: {
+      probability: 50,
+      description: 'dumm gelaufen',
+      modifiers: {
+        'real-estate': {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+        shares: {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+        commodities: {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+      },
     },
   },
-  {
-    title: 'Schnee-Rekord',
-    description:
-      'Schnee Rekord in Bern! \n Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
-    modifiers: {
-      [ASSETS.IMMO]: 0.8,
-      [ASSETS.SHARES]: 1.05,
-      [ASSETS.COMMODITIES]: 0.98,
-    },
+];
+
+/*
+const = eOld = {
+  title: 'Schnee-Rekord',
+  description:
+    'Schnee Rekord in Bern! \n Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
+  modifiers: {
+    [ASSETS.IMMO]: 0.8,
+    [ASSETS.SHARES]: 1.05,
+    [ASSETS.COMMODITIES]: 0.98,
   },
+},
   {
     title: 'Bilaterale Gefährdet',
     description:
@@ -87,6 +120,4 @@ export const EVENTS = [
         [ASSETS.SHARES]: 0.1,
         [ASSETS.COMMODITIES]: 0.1,
       },
-    },
-  },
-];
+    }*/

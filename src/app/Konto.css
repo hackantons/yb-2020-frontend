@@ -1,49 +1,52 @@
 .konto {
-  padding: 0 var(--gap-l);
-
-  &__bar {
-    position: relative;
-    width: 20px;
-    border: 1px solid #000;
-    height: 150px;
-    transform: skewY(-30deg) scale(0.6);
-
-    &:after {
-      content: '';
-      display: block;
-      background-color: red;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0;
-      z-index: 4;
-      transform-origin: left;
-      transform: scale(-1) skewY(50deg);
-    }
-
-    &:before {
-      content: '';
-      display: block;
-      background-color: #922929;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      z-index: 5;
-      transform: translate3d(-9px, -21px, 10px) skewX(40deg);
-    }
+  &__label {
+    display: flex;
+    gap: var(--gap-m);
+    margin-bottom: var(--gap-m);
   }
-
+  &__bar {
+    height: 15px;
+    background: var(--c-hellgrau);
+  }
+  &__total {
+    height: 100%;
+    position: relative;
+    background-color: var(--c-bekb-primary);
+    transition: width ease-in-out 200ms;
+  }
   &__bank {
-    background-color: #000;
+    background-color: var(--c-decrease);
     position: absolute;
     bottom: 0;
     right: 0;
-    left: 0;
-    will-change: height;
-    height: 0;
-    transition: height ease-in-out 200ms;
+    top: 0;
+    width: 0;
+    will-change: width;
+    transition: width ease-in-out 200ms;
+  }
+  &__skala {
+    display: flex;
+    justify-content: space-between;
+    color: var(--c-bz-text);
+    span {
+      &::before {
+        content: '';
+        display: block;
+        height: 8px;
+        width: 3px;
+        margin: 0 auto;
+        background: var(--c-hellgrau);
+      }
+    }
+    span:first-child {
+      &::before {
+        margin: 0;
+      }
+    }
+    span:last-child {
+      &::before {
+        margin: 0 0 0 auto;
+      }
+    }
   }
 }

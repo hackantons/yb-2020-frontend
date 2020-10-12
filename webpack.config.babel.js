@@ -13,12 +13,6 @@ const app = {
 
 import { DefinePlugin } from 'webpack';
 
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
-  }
-}
-
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -28,7 +22,6 @@ import WebpackPwaManifest from 'webpack-pwa-manifest';
 
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import glob from 'glob-all';
 
 module.exports = (env, argv) => {
   const dirDist = path.resolve(__dirname, 'dist');
@@ -49,7 +42,7 @@ module.exports = (env, argv) => {
       minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     entry: {
-      app: `${dirSrc}/index.js`,
+      app: `${dirSrc}/index.ts`,
     },
     devServer: {
       contentBase: dirDist,
@@ -136,6 +129,11 @@ module.exports = (env, argv) => {
           loader: ['babel-loader', 'raw-loader'],
         },
         {
+          test: /\.(ts|tsx)$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+        },
+        {
           test: /\.(js|jsx)$/,
           loader: 'babel-loader',
           exclude: /node_modules/,
@@ -172,7 +170,7 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
       alias: {
         '@app': `${dirSrc}/app/`,
         '@utils': `${dirSrc}/utils/`,

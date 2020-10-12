@@ -9,12 +9,19 @@ const Button = ({
   timerKey = '',
   onClick,
   ...props
+}: {
+  children?: React.ReactNode | React.ReactNode[];
+  className?: string;
+  clickAfter?: number;
+  timerKey?: string;
+  onClick: React.MouseEvent<HTMLElement>;
+  [key: string]: any;
 }) => {
-  const [time, setTime] = React.useState(0);
-  const timerWidth = React.useMemo(() => {
-    const timeToClick = clickAfter * 1000;
-    return Math.floor((100 / (clickAfter * 1000)) * time);
-  }, [time, clickAfter, timerKey]);
+  const [time, setTime] = React.useState<number>(0);
+  const timerWidth = React.useMemo<number>(
+    () => Math.floor((100 / (clickAfter * 1000)) * time),
+    [time, clickAfter, timerKey]
+  );
 
   React.useEffect(() => {
     setTime(0);

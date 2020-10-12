@@ -9,27 +9,27 @@ import Event from '@app/Event';
 import LeaderBoard from '@app/LeaderBoard';
 import { ShadowBox, Button } from './theme';
 
-import { ASSETS } from '@utils/constants';
 import { EVENTS, INIT_EVENT } from '@utils/events';
+import { AssetD } from './@types/Assets';
 
 const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
 
 const App = () => {
-  const [shadowBox, setShadowBox] = React.useState(false);
-  const [end, setEnd] = useState(false);
-  const [locked, setLocked] = useState(false);
-  const [step, setStep] = useState(0);
-  const [bank, setBank] = useState(1000);
-  const [portfolio, setPortfolio] = useState({
-    [ASSETS.IMMO]: 0,
-    [ASSETS.SHARES]: 0,
-    [ASSETS.COMMODITIES]: 0,
+  const [shadowBox, setShadowBox] = React.useState<boolean>(false);
+  const [end, setEnd] = useState<boolean>(false);
+  const [locked, setLocked] = useState<boolean>(false);
+  const [step, setStep] = useState<number>(0);
+  const [bank, setBank] = useState<number>(1000);
+  const [portfolio, setPortfolio] = useState<Record<AssetD, number>>({
+    'real-estate': 0,
+    shares: 0,
+    commodities: 0,
   });
 
-  const [unexpectedTitle, setUnexpectedTitle] = React.useState(null);
-  const [unexpectedDescription, setUnexpectedDescription] = React.useState(
-    null
-  );
+  const [unexpectedTitle, setUnexpectedTitle] = React.useState<string>(null);
+  const [unexpectedDescription, setUnexpectedDescription] = React.useState<
+    string
+  >(null);
 
   const [changeFromStep, setChangeFromStep] = React.useState(false);
 
@@ -38,8 +38,9 @@ const App = () => {
     [step]
   );
 
-  const totalAssets = React.useMemo(
-    () => Object.values(portfolio).reduce((acc, v) => v + acc, 0),
+  const totalAssets = React.useMemo<number>(
+    () =>
+      Object.values(portfolio).reduce((acc: number, v: number) => v + acc, 0),
     [portfolio]
   );
 
@@ -49,6 +50,7 @@ const App = () => {
     const modifiedAssets = {};
     setLocked(true);
 
+    /*
     if (unexpectedTitle) {
       setUnexpectedTitle(null);
       setUnexpectedDescription(null);
@@ -83,6 +85,7 @@ const App = () => {
         setEnd(true);
       }
     }
+     */
   };
 
   return (
@@ -130,7 +133,7 @@ const App = () => {
             <img
               class="asset__image--filled explanation-icon"
               src="/assets/static/real-estate.png"
-            ></img>
+            />
             <p>
               Dieses Icon stellt die Immobilien in deinem Portfdolio dar,
               überlege dir gut ob es Sinn macht zu investieren
@@ -138,7 +141,7 @@ const App = () => {
             <img
               class="asset__image--filled explanation-icon"
               src="/assets/static/shares.png"
-            ></img>
+            />
             <p>
               Dieses Icon stellt die Aktien in deinem Portfdolio dar, Sie sind
               volatiler als Rohstoffe und Immobilien.
@@ -146,7 +149,7 @@ const App = () => {
             <img
               class="asset__image--filled explanation-icon"
               src="/assets/static/commodities.png"
-            ></img>
+            />
             <p>
               Dieses Icon stellt die Rohstoffe in deinem Portfolio dar, die
               Rohstoffe sind als Anlage stabiler, aber bringen weniger Gewinn
@@ -161,7 +164,7 @@ const App = () => {
             <img
               class="asset__image--filled explanation-bar"
               src="/assets/static/bar.png"
-            ></img>
+            />
             <p>
               Dieser Balken stellt dein Bankvermögen dar, dieses Geld kannst du
               investieren oder bei der BEKB sicher lagern

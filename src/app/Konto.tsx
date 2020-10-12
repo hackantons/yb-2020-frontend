@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './KontoH.css';
+import './Konto.css';
 
 const KontoH = ({ bank, assets }) => {
   const max = 3000;
@@ -13,17 +13,19 @@ const KontoH = ({ bank, assets }) => {
   const barWidth = Math.min((totalWealth / max) * 100, 100);
 
   return (
-    <div className="portfolio__konto konto-h">
-      <div className="konto-h__label">
-        <h3 className="test">Dein Vermögen CHF {totalWealth.toLocaleString('de-CH')}.-</h3>
-        <span>{' '}{investRatio}% investiert</span>
+    <div className="portfolio__konto konto">
+      <div className="konto__label">
+        <h3 className="test">
+          Dein Vermögen CHF {totalWealth.toLocaleString('de-CH')}.-
+        </h3>
+        <span> {investRatio}% investiert</span>
       </div>
-      <div className="konto-h__bar">
-        <div className="konto-h__total" style={{ width: `${barWidth}%` }}>
-          <div className="konto-h__bank" style={{ width: `${bankWidth}%` }} />
+      <div className="konto__bar">
+        <div className="konto__total" style={{ width: `${barWidth}%` }}>
+          <div className="konto__bank" style={{ width: `${bankWidth}%` }} />
         </div>
       </div>
-      <div className="konto-h__skala">
+      <div className="konto__skala">
         <span>0</span>
         <span>1'000</span>
         <span>2'000</span>

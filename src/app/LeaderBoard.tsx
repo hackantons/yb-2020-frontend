@@ -1,6 +1,6 @@
 import React from 'react';
 import useOnlineStatus from '@rehooks/online-status';
-import { getLeaderboard } from '../utils/api';
+import { getLeaderboard } from '@utils/api';
 
 import { ShadowBox, Button } from '../theme';
 
@@ -16,7 +16,7 @@ const LeaderBoard = ({ value, className = '' }) => {
   const onlineStatus = useOnlineStatus();
 
   React.useEffect(() => {
-    getLeaderboard.then(payload => {
+    getLeaderboard().then(payload => {
       setLoading(false);
       setLeaders([
         ...payload.data,

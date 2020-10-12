@@ -9,6 +9,15 @@ const Asset = ({
   totalAssets,
   locked,
   changeFromStep,
+  key,
+}: {
+  assetKey?: string;
+  value: number;
+  modifyAsset: Function;
+  totalAssets: number;
+  locked: boolean;
+  changeFromStep: boolean;
+  key: string;
 }) => {
   const [dragging, setDragging] = React.useState(false);
   const [startY, setStartY] = React.useState(0);
@@ -20,7 +29,7 @@ const Asset = ({
       setCounterClass('');
       window.setTimeout(() => {
         setCounterClass(value >= oldValue ? 'increase' : 'decrease');
-      }, 10);
+      }, 200);
     }
     setOldValue(value);
   }, [value]);
