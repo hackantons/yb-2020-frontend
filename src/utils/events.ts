@@ -1,4 +1,4 @@
-import { EventD } from '../@types/Event';
+import { EventD } from '@app/types';
 
 export const INIT_EVENT = {
   title: 'BEKB Investment Simulator',

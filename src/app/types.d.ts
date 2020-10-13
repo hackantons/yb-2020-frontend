@@ -1,4 +1,6 @@
-import { AssetD } from './Assets';
+export type AssetD = 'real-estate' | 'commodities' | 'shares';
+
+export type PortfolioD = Record<AssetD, number>;
 
 export interface EventD {
   title: string;

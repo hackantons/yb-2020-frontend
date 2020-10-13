@@ -3,7 +3,8 @@ import React from 'react';
 import './Portfolio.css';
 import Asset from '@app/Asset';
 import Konto from '@app/Konto';
-import { PortfolioD } from '../@types/Assets';
+
+import { PortfolioD } from '@app/types';
 
 const Portfolio = ({
   locked = false,

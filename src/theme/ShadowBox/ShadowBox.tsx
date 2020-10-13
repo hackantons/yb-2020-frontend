@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './ShadowBox.css';
 
-const Portal = ({ children }: { children?: React.ReactNode }) => {
-  return ReactDOM.createPortal(children, document.querySelector('#shadowbox'));
-};
+const Portal = ({ children }: { children?: React.JSX.Element }) =>
+  ReactDOM.createPortal(children, document.querySelector('#shadowbox'));
 
 export default ({
   children,
   close,
 }: {
-  children?: React.ReactNode | React.ReactNode[];
-  close: React.MouseEvent<HTMLElement>;
+  children?: React.JSX.Element | React.JSX.Element[];
+  close: Function;
 }) => {
   const [show, setShow] = React.useState<boolean>(false);
 

@@ -1,21 +1,38 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import React, { useEffect, useState } from 'react';
-import './App.css';
 
-import { shuffle } from '@utils/helpers';
+import { Provider, useStoreState, useActions } from 'unistore-hooks';
+import { actions, store } from '@store/index';
+import { State } from '@store/types';
+
+import './App.css';
 
 import Portfolio from '@app/Portfolio';
 import Event from '@app/Event';
 import LeaderBoard from '@app/LeaderBoard';
-import { ShadowBox, Button } from './theme';
+import { ShadowBox, Button } from '@theme';
 
-import { EVENTS, INIT_EVENT } from '@utils/events';
-import { AssetD } from './@types/Assets';
+import InformationPopup from '@app/onboarding/InformationPopup';
 
-const allEvents = [INIT_EVENT, ...shuffle(EVENTS).slice(0, 6)];
+import { AssetD } from '@app/types';
 
 const App = () => {
-  const [shadowBox, setShadowBox] = React.useState<boolean>(false);
+  const { eventIndex }: State = useStoreState(['eventIndex']);
+  const { setOffline } = useActions(actions);
+
+  const [informationPopup, setInformationPopup] = React.useState<boolean>(
+    false
+  );
+
+  React.useEffect(() => {
+    setOffline(!navigator.onLine);
+    window.addEventListener('online', () => setOffline(false), false);
+    window.addEventListener('offline', () => setOffline(true), false);
+  }, []);
+
+  return <div className="app">Index: {eventIndex}</div>;
+
+  /*
   const [end, setEnd] = useState<boolean>(false);
   const [locked, setLocked] = useState<boolean>(false);
   const [step, setStep] = useState<number>(0);
@@ -50,7 +67,6 @@ const App = () => {
     const modifiedAssets = {};
     setLocked(true);
 
-    /*
     if (unexpectedTitle) {
       setUnexpectedTitle(null);
       setUnexpectedDescription(null);
@@ -85,7 +101,6 @@ const App = () => {
         setEnd(true);
       }
     }
-     */
   };
 
   return (
@@ -118,7 +133,7 @@ const App = () => {
       {!end && (
         <button
           className="explanation-button"
-          onClick={() => setShadowBox(true)}
+          onClick={() => setInformationPopup(true)}
         >
           <img
             className="explanation-button__img"
@@ -127,53 +142,15 @@ const App = () => {
         </button>
       )}
 
-      {shadowBox && (
-        <ShadowBox close={() => setShadowBox(false)}>
-          <div className="explanation">
-            <img
-              class="asset__image--filled explanation-icon"
-              src="/assets/static/real-estate.png"
-            />
-            <p>
-              Dieses Icon stellt die Immobilien in deinem Portfdolio dar,
-              überlege dir gut ob es Sinn macht zu investieren
-            </p>
-            <img
-              class="asset__image--filled explanation-icon"
-              src="/assets/static/shares.png"
-            />
-            <p>
-              Dieses Icon stellt die Aktien in deinem Portfdolio dar, Sie sind
-              volatiler als Rohstoffe und Immobilien.
-            </p>
-            <img
-              class="asset__image--filled explanation-icon"
-              src="/assets/static/commodities.png"
-            />
-            <p>
-              Dieses Icon stellt die Rohstoffe in deinem Portfolio dar, die
-              Rohstoffe sind als Anlage stabiler, aber bringen weniger Gewinn
-            </p>
-            <br />
-            <p>
-              Mit all diesen Icons lässt sich per rauf und runter "swipen"
-              interagieren
-            </p>
-            <br />
-
-            <img
-              class="asset__image--filled explanation-bar"
-              src="/assets/static/bar.png"
-            />
-            <p>
-              Dieser Balken stellt dein Bankvermögen dar, dieses Geld kannst du
-              investieren oder bei der BEKB sicher lagern
-            </p>
-          </div>
-        </ShadowBox>
-      )}
+      {informationPopup && <InformationPopup setOpen={setInformationPopup} />}
     </div>
   );
+       */
 };
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+ReactDOM.render(
+  <Provider value={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#app')
+);

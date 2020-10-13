@@ -10,11 +10,11 @@ const Button = ({
   onClick,
   ...props
 }: {
-  children?: React.ReactNode | React.ReactNode[];
+  children?: React.JSX.Element | React.JSX.Element[] | string;
   className?: string;
   clickAfter?: number;
   timerKey?: string;
-  onClick: React.MouseEvent<HTMLElement>;
+  onClick: Function;
   [key: string]: any;
 }) => {
   const [time, setTime] = React.useState<number>(0);
@@ -44,7 +44,11 @@ const Button = ({
   }, [timerKey]);
 
   return (
-    <button {...props} className={`${className} button`} onClick={onClick}>
+    <button
+      {...props}
+      className={`${className} button`}
+      onClick={() => onClick()}
+    >
       <span className="button__content">{children}</span>
       <span className="button__timer" style={{ width: `${timerWidth}%` }} />
     </button>

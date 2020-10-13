@@ -2,7 +2,7 @@ import React from 'react';
 import useOnlineStatus from '@rehooks/online-status';
 import { getLeaderboard } from '@utils/api';
 
-import { ShadowBox, Button } from '../theme';
+import { ShadowBox, Button } from '@theme';
 
 import './LeaderBoard.css';
 import axios from 'axios';
@@ -144,7 +144,7 @@ const LeaderBoard = ({ value, className = '' }) => {
             id="name"
             name="name"
             type="text"
-            onInput={e => setName(e.target.value)}
+            onInput={e => setName((e.target as HTMLInputElement).value)}
           />
           <Button
             className="score-button"
