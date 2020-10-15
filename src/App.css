@@ -2,7 +2,14 @@
   max-width: 500px;
   margin: 0 auto;
   position: relative;
-  &:before {
+
+  &__screens {
+    transition: opacity 400ms;
+    will-change: opacity;
+    height: 100%;
+  }
+
+  &::before {
     content: '';
     position: absolute;
     right: 0;
@@ -18,9 +25,12 @@
   height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 
-  &__event {
-    flex: 1 1 auto;
-    padding: var(--gap-l);
+  &__card {
+    height: 100%;
+  }
+
+  &__konto {
+    padding: var(--gap-m) var(--gap-l);
   }
 }
 

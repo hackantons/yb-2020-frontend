@@ -48,6 +48,46 @@ export const EVENTS: EventD[] = [
       },
     },
   },
+  {
+    title: 'Schnee-Rekord',
+    description:
+      'Schnee Rekord in Bern! \\n Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
+    resolution: {
+      description: 'ist doch klar, oder?',
+      modifiers: {
+        'real-estate': {
+          reason: 'X',
+          multiplier: 1.4,
+        },
+        shares: {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+        commodities: {
+          reason: 'X',
+          multiplier: 1.2,
+        },
+      },
+    },
+    alterative: {
+      probability: 50,
+      description: 'dumm gelaufen',
+      modifiers: {
+        'real-estate': {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+        shares: {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+        commodities: {
+          reason: 'X',
+          multiplier: 0.8,
+        },
+      },
+    },
+  },
 ];
 
 /*

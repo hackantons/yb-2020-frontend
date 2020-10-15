@@ -1,5 +1,5 @@
 .asset {
-  //height: 150px;
+//height: 150px;
   /* background: #e2d4b3; */
   width: 33%;
   /* padding: 10px; */
@@ -25,9 +25,7 @@
     position: absolute;
     width: 96%;
     font-size: 26px;
-    //bottom: 1.3em;
-    //right: -0.1em;
-    text-align: right;
+  //bottom: 1.3em; //right: -0.1em; text-align: right;
     transform-origin: center;
     color: var(--c-weiss);
     font-weight: 900;
@@ -39,6 +37,7 @@
       animation-duration: 1.5s;
       animation-name: increase;
     }
+
     &.decrease {
       animation-duration: 1.5s;
       animation-name: decrease;

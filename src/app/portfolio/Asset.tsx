@@ -1,6 +1,7 @@
 import React from 'react';
 import ContUp from 'react-countup';
 import './Asset.css';
+import { ASSETS } from '@utils/constants';
 
 const Asset = ({
   assetKey,
@@ -79,6 +80,8 @@ const Asset = ({
     >
       <div className="asset__icons">
         <img
+          alt={ASSETS[assetKey]}
+          title={ASSETS[assetKey]}
           className="asset__image--filled"
           src={`/assets/static/${assetKey}.png`}
         />
@@ -87,6 +90,8 @@ const Asset = ({
           style={{ height: `${emptyHeight}%` }}
         >
           <img
+            alt={ASSETS[assetKey]}
+            title={ASSETS[assetKey]}
             className="asset__image--empty"
             src={`/assets/static/${assetKey}-empty.png`}
           />

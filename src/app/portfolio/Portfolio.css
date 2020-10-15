@@ -2,15 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  
+
   &__assets {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--gap-m) var(--gap-m);
-  }
-
-  &__konto {
-    padding: var(--gap-m) var(--gap-l);
   }
 }

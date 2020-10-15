@@ -1,0 +1,43 @@
+.card {
+  padding: var(--gap-l);
+  height: 100%;
+
+  p {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  }
+
+  &__header {
+    border-bottom: 1px solid var(--c-grau);
+    padding-bottom: var(--gap-m);
+    margin: var(--gap-l);
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    margin: 0 var(--gap-l) var(--gap-l) var(--gap-l);
+
+    & > * + * {
+      margin-top: 1em;
+    }
+  }
+
+  &__cta {
+    margin-top: auto;
+  }
+}

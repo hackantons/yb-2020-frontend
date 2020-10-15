@@ -1,12 +1,15 @@
-import { AssetD, EventD } from '@app/types';
+import { EventD, EventOutcome } from '@app/types';
 
 export interface State {
+  activeScreen: string;
   events: EventD[];
   eventIndex: number;
+  eventOutcome: EventOutcome;
   portfolio: Array<{
-    asset: AssetD;
+    key: string;
     value: number;
   }>;
+  accountBalance: number;
   offline: boolean;
 }
 

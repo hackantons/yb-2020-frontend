@@ -1,2 +1,4 @@
-export { default as Button } from './button/Button';
+export { default as Badge } from './TextElements/Badge';
+export { default as Button } from './Button/Button';
 export { default as ShadowBox } from './ShadowBox/ShadowBox';
+export { default as Card } from './Card/Card';

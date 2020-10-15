@@ -1,0 +1,10 @@
+.badge {
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 var(--gap-s);
+  margin-right: var(--gap-m);
+  margin-bottom: var(--gap-m);
+  background-color: var(--c-bz-highlight);
+}

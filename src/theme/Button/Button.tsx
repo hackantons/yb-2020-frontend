@@ -19,7 +19,8 @@ const Button = ({
 }) => {
   const [time, setTime] = React.useState<number>(0);
   const timerWidth = React.useMemo<number>(
-    () => Math.floor((100 / (clickAfter * 1000)) * time),
+    () =>
+      clickAfter === 0 ? 0 : Math.floor((100 / (clickAfter * 1000)) * time),
     [time, clickAfter, timerKey]
   );
 
