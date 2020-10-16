@@ -16,7 +16,10 @@ export const windowResize = () => {
 export const formatCurrency = (
   number: number,
   addCurrency: boolean = true
-): string => (addCurrency ? 'CHF ' : '' + number + '.-');
+): string =>
+  (addCurrency ? 'CHF ' : '') +
+  Math.round(number).toLocaleString('de-CH') +
+  '.-';
 
 export const formatMultiplier = (
   multiplier: number,

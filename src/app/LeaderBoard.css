@@ -1,0 +1,46 @@
+.leaderboard {
+  &__rank {
+    text-align: center;
+    margin-top: var(--gap-l);
+    margin-bottom: var(--gap-l);
+
+    .total {
+      font-weight: 600;
+      color: var(--c-bekb-primary);
+    }
+
+    h2 {
+      margin: var(--gap-s) 0;
+    }
+  }
+
+  &__top5 {
+    margin: 1em 0 0.5em 0;
+  }
+
+  &__table {
+    width: 100%;
+    border-top: 1px solid var(--c-grau);
+
+    tr {
+      td {
+        padding: 0.5em;
+        border-bottom: 1px solid var(--c-grau);
+        font-size: 1rem;
+
+        &:first-child {
+          font-weight: 700;
+          color: #c03;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__leader-you {
+    font-weight: bold;
+  }
+}
