@@ -18,7 +18,7 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "axios": "^0.20.0",
-    "moment": "^2.24.0",
+    "dayjs": "^1.9.3",
     "preact": "^10.5.4",
     "react-countup": "^4.3.3",
     "unistore": "^3.5.2",

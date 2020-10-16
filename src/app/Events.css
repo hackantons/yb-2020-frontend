@@ -5,12 +5,12 @@
   transform-origin: bottom center;
   min-height: 0;
 
-  &[data-fade="out"] {
+  &[data-fade='out'] {
     opacity: 0;
     transform: scale(0.8) rotate(-15deg) translateX(-10%);
   }
 
-  &[data-fade="in"] {
+  &[data-fade='in'] {
     transition-duration: 0ms;
     opacity: 0;
     transform: scale(0.8) rotate(15deg) translateX(10%);
