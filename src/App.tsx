@@ -11,7 +11,7 @@ import Portfolio from '@app/portfolio/Portfolio';
 import Konto from '@app/Konto';
 import Events from '@app/Events';
 import LeaderBoard from '@app/LeaderBoard';
-import { ShadowBox, Button, Card } from '@theme';
+import { ShadowBox, Button, Card, SVG } from '@theme';
 
 import InformationPopup from '@app/onboarding/InformationPopup';
 
@@ -57,7 +57,7 @@ const App = () => {
           <Events className="app__card" />
         ) : (
           <Card
-            title={<img src="/assets/static/logo.svg" alt="BEKB Logo" />}
+            title={<SVG path="logo.svg" alt="BEKB Logo" />}
             ctaOnClick={() => startGame()}
             ctaText="Los geht's!"
             className="app__card"

@@ -6,7 +6,7 @@ import { State } from '@store/types';
 
 import './Events.css';
 
-import { Badge, Card, FlipCard } from '../theme';
+import { Badge, Card, FlipCard, SVG } from '../theme';
 import { ASSETS } from '@utils/constants';
 import { formatMultiplier } from '@utils/helpers';
 
@@ -31,6 +31,9 @@ const Events = ({ className = '' }: { className?: string }) => {
     [events, eventIndex]
   );
   const [delayedEvent, setDelayedEvent] = React.useState(currentEvent);
+  const [delayedEventOutcome, setDelayedEventOutcome] = React.useState(
+    eventOutcome
+  );
 
   React.useEffect(() => {
     if (!init) {
@@ -47,6 +50,7 @@ const Events = ({ className = '' }: { className?: string }) => {
     setTimeout(() => {
       setFade('none');
       setDelayedEvent(currentEvent);
+      setDelayedEventOutcome(eventOutcome);
       setFlipSpeed(800);
     }, 500);
   }, [currentEvent]);
@@ -58,12 +62,7 @@ const Events = ({ className = '' }: { className?: string }) => {
         flipSpeed={flipSpeed}
         front={
           <Card
-            title={
-              <img
-                src="/assets/static/bernerzeitung.svg"
-                alt="Logo Berner Zeitung"
-              />
-            }
+            title={<SVG path="bernerzeitung.svg" alt="Logo Berner Zeitung" />}
             ctaOnClick={() => {
               setShowOutcome(true);
               resolveCurrentEvent();
@@ -87,10 +86,10 @@ const Events = ({ className = '' }: { className?: string }) => {
               />
             }
             ctaOnClick={() =>
-              eventOutcome.isLastEvent ? showLeaderBoard() : nextEvent()
+              delayedEventOutcome.isLastEvent ? showLeaderBoard() : nextEvent()
             }
             ctaText={
-              eventOutcome.isLastEvent
+              delayedEventOutcome.isLastEvent
                 ? 'Leaderboard anzeigen'
                 : 'Nächster Event'
             }
@@ -100,13 +99,13 @@ const Events = ({ className = '' }: { className?: string }) => {
             }}
           >
             <React.Fragment>
-              {!eventOutcome.expected && (
+              {!delayedEventOutcome.expected && (
                 <p>
                   <Badge>Eilmendung</Badge>
                 </p>
               )}
-              <p>{eventOutcome.description}</p>
-              {Object.entries(eventOutcome.modifiers).map(
+              <p>{delayedEventOutcome.description}</p>
+              {Object.entries(delayedEventOutcome.modifiers).map(
                 ([assetKey, modifier]) => (
                   <p>
                     <b>
