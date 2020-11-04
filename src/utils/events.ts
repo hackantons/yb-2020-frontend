@@ -16,34 +16,38 @@ export const EVENTS: EventD[] = [
       description: 'ist doch klar, oder?',
       modifiers: {
         'real-estate': {
-          reason: 'X',
+          reason:
+            'Die Stadt Bern ist im Aufschwung. Reihenweise ziehen Fans in die Stadt und lassen die Mieten steigen.',
           multiplier: 1.4,
         },
         shares: {
-          reason: 'X',
+          reason:
+            'Die Börse reagiert mit einem deutlichen Plus auf den Sieg des BSCYBs. Endlich scheint die Vorherrschaft des FC Basels gebrochen.',
           multiplier: 1.2,
         },
         commodities: {
-          reason: 'X',
-          multiplier: 1.2,
+          reason: '',
+          multiplier: 1,
         },
       },
     },
     alterative: {
       probability: 50,
-      description: 'dumm gelaufen',
+      description: 'Leider kommt es nicht immer, wie man denkt',
       modifiers: {
         'real-estate': {
-          reason: 'X',
+          reason:
+            'Leider doch kein Kaufrausch in den Berner Innenstädten. Enttäuschte Grossinvestoren ziahen sich aus den Innenstädten zurück.',
           multiplier: 0.8,
         },
         shares: {
-          reason: 'X',
+          reason:
+            'Diverse Anleger haben auf eine Wachablösung an der Spitze des Schweizer Fussballs gehofft. Die Enttäuschung sieht man deutlich in den Zahlen.',
           multiplier: 0.8,
         },
         commodities: {
-          reason: 'X',
-          multiplier: 0.8,
+          reason: '',
+          multiplier: 1,
         },
       },
     },
@@ -51,39 +55,66 @@ export const EVENTS: EventD[] = [
   {
     title: 'Schnee-Rekord',
     description:
-      'Schnee Rekord in Bern! \\n Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
+      'Schnee Rekord in Bern! Bis am Sonntagmorgen fallen in der Stadt 250 Zentimeter Neuschnee. Es ist mit enormen Ausfällen jeglichen Verkehrs zu rechnen.',
     resolution: {
-      description: 'ist doch klar, oder?',
+      description:
+        'Schnee bis ins Flachland. Die Kinder freuts, die Immobilienbesizer blicken mit Sorge in den Frühling.',
       modifiers: {
         'real-estate': {
-          reason: 'X',
-          multiplier: 1.4,
-        },
-        shares: {
-          reason: 'X',
+          reason:
+            'Die für den Frühling erwarteten Hochwasser bereiten der Immobilienbranche grosse Sorge',
           multiplier: 0.8,
         },
+        shares: {
+          reason:
+            'Wenn das Geld aus den Immobilien genommen wird, fliesst es in Aktion. Ein kleines Plus',
+          multiplier: 1.05,
+        },
         commodities: {
-          reason: 'X',
-          multiplier: 1.2,
+          reason: '',
+          multiplier: 0,
+        },
+      },
+    },
+  },
+  {
+    title: 'Bürgerkrieg im Kongo',
+    description:
+      'Kongo steht kurz vor einem Bürgerkrieg. Die NATO versucht zu vermitteln, aber die Chancen stehen schlecht.',
+    resolution: {
+      description:
+        'Im Kongo ist Bürgerkrieg ausgebrochen, dies verzögert auch die Auslieferung der neuen Macbooks welche diverse Rohmateralien aus dem Kongo benötigen.',
+      modifiers: {
+        'real-estate': {
+          reason: '',
+          multiplier: 1.1,
+        },
+        shares: {
+          reason:
+            'Diverse Unternehmen leiden unter den Auswirkungen des Bürgerkrieges',
+          multiplier: 0.9,
+        },
+        commodities: {
+          reason: 'Rohstoffe werden plötzlich enorm begehrt und dadurch teuer.',
+          multiplier: 1.4,
         },
       },
     },
     alterative: {
-      probability: 50,
-      description: 'dumm gelaufen',
+      probability: 20,
+      description: 'Die NATO konnte erfolgreich vermitteln.',
       modifiers: {
         'real-estate': {
-          reason: 'X',
-          multiplier: 0.8,
+          reason: '',
+          multiplier: 1.1,
         },
         shares: {
-          reason: 'X',
-          multiplier: 0.8,
+          reason: 'Die Börse kann aufatmen',
+          multiplier: 1.3,
         },
         commodities: {
-          reason: 'X',
-          multiplier: 0.8,
+          reason: '',
+          multiplier: 0.9,
         },
       },
     },

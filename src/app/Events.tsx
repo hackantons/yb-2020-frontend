@@ -104,7 +104,9 @@ const Events = ({ className = '' }: { className?: string }) => {
                   <Badge>Eilmendung</Badge>
                 </p>
               )}
-              <p>{delayedEventOutcome.description}</p>
+              <p>
+                <b>{delayedEventOutcome.description}</b>
+              </p>
               {Object.entries(delayedEventOutcome.modifiers).map(
                 ([assetKey, modifier]) => (
                   <p>

@@ -29,10 +29,11 @@ const generateOutcome = (events, eventIndex) => {
     modifiers: currentEvent.resolution.modifiers,
     isLastEvent,
   };
+
   if (
     'alterative' in currentEvent &&
     Math.floor(Math.random() * Math.floor(100)) <
-      currentEvent.alterative.propability
+      currentEvent.alterative.probability
   ) {
     eventOutcome = {
       expected: false,
