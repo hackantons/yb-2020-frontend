@@ -42,7 +42,7 @@ const Button = ({
     return () => {
       window.clearInterval(timer);
     };
-  }, [timerKey]);
+  }, [timerKey, clickAfter]);
 
   return (
     <button

@@ -99,6 +99,7 @@ module.exports = (env, argv) => {
               theme_color: app.color,
               background_color: app.colorbkg,
               crossorigin: 'use-credentials',
+              start_url: '/',
               fingerprints: false,
               icons: [
                 {

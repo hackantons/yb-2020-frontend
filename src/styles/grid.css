@@ -1,7 +1,6 @@
 :root {
-    --grid: 4px;
-
-    --gap-s: var(--grid);
-    --gap-m: calc( var(--grid) * 3 );
-    --gap-l: calc( var(--grid) * 6 );
+  --grid: clamp(4px, 4px, 0.8vmin);
+  --gap-s: var(--grid);
+  --gap-m: calc(var(--grid) * 3);
+  --gap-l: calc(var(--grid) * 6);
 }

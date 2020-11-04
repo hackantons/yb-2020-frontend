@@ -41,4 +41,4 @@ export const formatMultiplier = (
 };
 
 // @ts-ignore
-export const isDev = (): boolean => String(IS_DEV) === 'true';
+export const isDev: boolean = String(IS_DEV) === 'true';

@@ -11,11 +11,10 @@ import Portfolio from '@app/portfolio/Portfolio';
 import Konto from '@app/Konto';
 import Events from '@app/Events';
 import LeaderBoard from '@app/LeaderBoard';
-import { ShadowBox, Button, Card, SVG } from '@theme';
+import { Card, SVG } from '@theme';
 
-import InformationPopup from '@app/onboarding/InformationPopup';
+import useWindowSize from '@app/hooks/useWindowSize';
 
-import { AssetD } from '@app/types';
 import { SCREENS } from '@utils/constants';
 
 const App = () => {
@@ -25,10 +24,13 @@ const App = () => {
   const [delayedActiveScreen, setDelayedActiveScreen] = React.useState(
     activeScreen
   );
+  const [appScreensHeight, setAppScreensHeight] = React.useState<number>(null);
+  const windowSize = useWindowSize();
 
-  const [informationPopup, setInformationPopup] = React.useState<boolean>(
-    false
-  );
+  const footerRef = React.useRef(null);
+  const showFooter = React.useMemo(() => delayedActiveScreen !== SCREENS[2], [
+    delayedActiveScreen,
+  ]);
 
   React.useEffect(() => {
     resetGame();
@@ -48,9 +50,21 @@ const App = () => {
     window.addEventListener('offline', () => setOffline(true), false);
   }, []);
 
+  React.useEffect(() => {
+    if (windowSize.height) {
+      setAppScreensHeight(
+        windowSize.height -
+          (footerRef.current ? footerRef.current.clientHeight : 0)
+      );
+    }
+  }, [windowSize, footerRef, showFooter]);
+
   return (
     <div className="app">
-      <div className="app__screens" style={{ opacity }}>
+      <div
+        className="app__screens"
+        style={{ opacity, height: appScreensHeight }}
+      >
         {delayedActiveScreen === SCREENS[2] ? (
           <LeaderBoard className="app__card" />
         ) : delayedActiveScreen === SCREENS[1] ? (
@@ -71,11 +85,11 @@ const App = () => {
           </Card>
         )}
       </div>
-      {delayedActiveScreen !== SCREENS[2] && (
-        <React.Fragment>
+      {showFooter && (
+        <div className="app_footer" ref={footerRef}>
           <Portfolio className="app__portfolio" />
           <Konto className="app__konto" />
-        </React.Fragment>
+        </div>
       )}
     </div>
   );

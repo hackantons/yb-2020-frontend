@@ -64,12 +64,12 @@ const Events = ({ className = '' }: { className?: string }) => {
           <Card
             title={<SVG path="bernerzeitung.svg" alt="Logo Berner Zeitung" />}
             ctaOnClick={() => {
-              setShowOutcome(true);
               resolveCurrentEvent();
+              setShowOutcome(true);
             }}
             ctaText="Weiter"
             ctaProps={{
-              clickAfter: TIMEOUT,
+              clickAfter: showOutcome ? 0 : TIMEOUT,
               timerKey: `event-${eventIndex}`,
             }}
           >

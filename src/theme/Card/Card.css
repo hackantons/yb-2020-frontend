@@ -33,6 +33,7 @@
 
   &__body {
     margin: 0 var(--gap-l) var(--gap-l) var(--gap-l);
+    overflow-y: auto;
 
     & > * + * {
       margin-top: 1em;

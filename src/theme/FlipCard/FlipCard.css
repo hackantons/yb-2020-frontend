@@ -21,10 +21,10 @@
   }
 
   &__front {
+    z-index: -1;
   }
 
   &__back {
-    z-index: 10;
     transform: rotateY(-180deg);
   }
 

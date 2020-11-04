@@ -72,7 +72,7 @@ export const EVENTS: EventD[] = [
         },
         commodities: {
           reason: '',
-          multiplier: 0,
+          multiplier: 1,
         },
       },
     },
